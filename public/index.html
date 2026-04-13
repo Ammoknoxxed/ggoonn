@@ -3,49 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocol Base // V1.2</title>
+    <title>Protocol Base // V2.0 - Public Release</title>
     <style>
         :root {
-            --bg-dark: #0f0f13;
-            --surface: #1c1c24;
+            --bg-dark: #0a0a0e;
+            --surface: #16161d;
+            --surface-light: #22222d;
             --accent: #00ffcc;
+            --accent-danger: #ff4444;
             --text-main: #e2e2e2;
-            --text-muted: #888;
+            --text-muted: #9aa0a6;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; line-height: 1.6; }
         
         /* Sidebar */
-        .sidebar { width: 260px; background: var(--surface); padding: 2rem 1rem; border-right: 1px solid #333; display: flex; flex-direction: column; gap: 10px; }
-        .logo { font-size: 1.2rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; }
-        .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 12px 15px; text-align: left; font-size: 1rem; cursor: pointer; border-radius: 6px; transition: all 0.2s; }
-        .nav-btn:hover { background: rgba(0, 255, 204, 0.1); color: var(--text-main); }
-        .nav-btn.active { background: var(--accent); color: #000; font-weight: bold; }
+        .sidebar { width: 280px; background: var(--surface); padding: 2rem 1.5rem; border-right: 1px solid #2a2a35; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+        .logo { font-size: 1.3rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid #2a2a35; padding-bottom: 1rem; }
+        .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 14px 16px; text-align: left; font-size: 1rem; cursor: pointer; border-radius: 8px; transition: all 0.2s ease; font-weight: 500; }
+        .nav-btn:hover { background: var(--surface-light); color: var(--text-main); }
+        .nav-btn.active { background: rgba(0, 255, 204, 0.1); color: var(--accent); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
 
         /* Main Content */
-        .content { flex: 1; padding: 3rem 4rem; overflow-y: auto; }
-        .panel { display: none; animation: fadeIn 0.3s ease; }
+        .content { flex: 1; padding: 3rem 5rem; overflow-y: auto; scroll-behavior: smooth; }
+        .panel { display: none; animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .panel.active { display: block; }
         
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; font-weight: 800; letter-spacing: -0.5px; }
+        .subtitle { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.2rem; border-bottom: 1px solid #2a2a35; padding-bottom: 1.5rem; }
         
-        /* Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid #333; transition: transform 0.2s; }
-        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
-        .card h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem; }
-        .card p, .card li { color: var(--text-muted); line-height: 1.6; margin-bottom: 0.5rem; }
-        .card ul { padding-left: 1.5rem; }
+        /* Layout Grid */
+        .grid { display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 1000px; }
+        
+        /* Extended Cards for Wiki Style */
+        .card { background: var(--surface); padding: 2rem; border-radius: 16px; border: 1px solid #2a2a35; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .card h3 { color: var(--accent); margin-bottom: 1.2rem; font-size: 1.4rem; display: flex; align-items: center; gap: 10px; }
+        .card h3::before { content: "■"; font-size: 0.8rem; }
+        .card p { color: var(--text-muted); margin-bottom: 1rem; text-align: justify; }
+        .card strong { color: var(--text-main); font-weight: 600; }
+        
+        .card ul, .card ol { padding-left: 1.5rem; color: var(--text-muted); margin-bottom: 1rem; }
+        .card li { margin-bottom: 0.5rem; }
+        .card li strong { color: var(--accent); }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Warning Box */
+        .warning { background: rgba(255, 68, 68, 0.1); border-left: 4px solid var(--accent-danger); padding: 1rem 1.5rem; margin-top: 1.5rem; border-radius: 0 8px 8px 0; }
+        .warning strong { color: var(--accent-danger); display: block; margin-bottom: 0.3rem; }
+        .warning p { margin: 0; color: #ffcccc; font-size: 0.95rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #2a2a35; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="logo">Protocol_Base</div>
-        <button class="nav-btn active" onclick="switchTab('biology')">Biologische Basis</button>
+        <button class="nav-btn active" onclick="switchTab('biology')">Biologie & Output</button>
         <button class="nav-btn" onclick="switchTab('mechanics')">Mechanik & Kontrolle</button>
         <button class="nav-btn" onclick="switchTab('hardware')">Hardware & Setup</button>
         <button class="nav-btn" onclick="switchTab('neuro')">Neuro & Trance</button>
@@ -54,104 +73,153 @@
     <div class="content">
         <div id="biology" class="panel active">
             <h1>Biologische Basis</h1>
-            <p class="subtitle">System-Upgrades für Output und Parameter.</p>
+            <p class="subtitle">Tiefgreifende System-Upgrades für Volumen, Geschmack und vaskuläre Parameter.</p>
             <div class="grid">
+                
                 <div class="card">
-                    <h3>Volume Protocol (Holy Grail)</h3>
+                    <h3>Das Volume Protocol (The Holy Grail)</h3>
+                    <p>Das menschliche Ejakulat besteht nur zu 1–5 % aus eigentlichen Spermien. Der Rest ist Samenflüssigkeit aus der Prostata und den Bläschendrüsen. Dieses Volumen lässt sich durch gezielte Supplementierung der Drüsen-Funktion extrem steigern.</p>
                     <ul>
-                        <li>Zink (50 mg/Tag)</li>
-                        <li>Pygeum Africanum (100 mg/Tag)</li>
-                        <li>Sojalecithin (1200 mg/Tag)</li>
-                        <li>Hydration: Min. 3-4 Liter Wasser</li>
+                        <li><strong>Zink (50 mg/Tag):</strong> Der essenzielle Grundbaustein. Zink ist kritisch für die Testosteronproduktion und die Spermatogenese.</li>
+                        <li><strong>Pygeum Africanum (100 mg/Tag):</strong> Rindenextrakt der afrikanischen Pflaume. Erhöht die Produktion der prostatischen Sekrete massiv und sorgt für einen extremen Anstieg der Vorflüssigkeit (Pre-Cum).</li>
+                        <li><strong>Sojalecithin (1200 mg/Tag):</strong> Verändert die Viskosität. Es macht die Konsistenz dicker, voluminöser und bindet die Komponenten zusammen.</li>
+                        <li><strong>Hydration (System Spülung):</strong> Das Protokoll ist nutzlos ohne Wasser. Die Drüsen benötigen zwingend 3 bis 4 Liter Wasser am Tag, um das zusätzliche Volumen überhaupt produzieren zu können.</li>
                     </ul>
                 </div>
+
                 <div class="card">
-                    <h3>Taste Patch</h3>
-                    <ul>
-                        <li><b>Whitelist:</b> Ananas, Papaya, Wasser</li>
-                        <li><b>Blacklist:</b> Nikotin, Kaffee, Knoblauch</li>
-                        <li><b>Laufzeit:</b> 24 - 48 Stunden</li>
-                    </ul>
+                    <h3>Taste Patching (Output-Neutralisation)</h3>
+                    <p>Der Geschmack wird durch den pH-Wert und die gelösten Stoffwechsel-Abbauprodukte bestimmt. Eine Modifikation muss zwingend 24 bis 48 Stunden vor der Session gestartet werden, da das System Zeit für die Synthese benötigt.</p>
+                    <ol>
+                        <li><strong>Die Blacklist:</strong> Nikotin, Kaffee und Alkohol machen das Sekret extrem bitter. Schwefelhaltige Lebensmittel (Knoblauch, Zwiebeln, Spargel) führen zu einem beißenden, strengen Geschmack und müssen gestrichen werden.</li>
+                        <li><strong>Die Whitelist:</strong> Fruktose ist der natürliche Energielieferant der Spermien. Der Konsum von Ananas, Papaya und Kiwi flutet das System mit Fruchtzucker und dem Enzym Bromelain, welches Proteine aufspaltet und den Geschmack süßlich-mild macht.</li>
+                        <li><strong>Verdünnung:</strong> Durch extreme Flüssigkeitszufuhr werden die natürlich vorkommenden Salze verdünnt. Das Resultat ist ein fast völlig neutraler Geschmack.</li>
+                    </ol>
                 </div>
+
                 <div class="card">
-                    <h3>Vasodilation Stack (NO-Boost)</h3>
-                    <ul>
-                        <li><b>L-Citrullin-Malat:</b> 6-8g ca. 45 Min vor der Session. Maximiert Durchblutung und Härte organisch.</li>
-                        <li><b>Gefahren-Warnung:</b> Niemals Poppers (Amylnitrit) mit PDE5-Hemmern (Viagra/Cialis) mischen. Tödlicher Blutdruckabfall möglich.</li>
-                    </ul>
+                    <h3>Vasodilatations-Stack (Organischer NO-Boost)</h3>
+                    <p>Die Härte der Erektion wird durch Stickstoffmonoxid (NO) im Blut gesteuert, welches die Blutgefäße weitet (Vasodilatation). Statt das Herzkreislaufsystem bei stundenlangen Sessions mit PDE5-Hemmern (Viagra) zu überlasten, nutzen wir Aminosäuren.</p>
+                    <p><strong>L-Citrullin-Malat (6–8 Gramm):</strong> Etwa 45 Minuten vor dem Start mit Wasser einnehmen. Es wird in den Nieren zu L-Arginin umgewandelt und sorgt für einen massiven, natürlichen Blutfluss in die Schwellkörper, reduziert den Blutdruck und hält die Härte organisch auf dem Maximum.</p>
+                    <div class="warning">
+                        <strong>Kritische Sicherheitswarnung</strong>
+                        <p>Die Kombination von PDE5-Hemmern (Viagra/Cialis) mit Poppers (Amylnitrit) ist absolut lebensgefährlich. Beide Substanzen weiten die Blutgefäße extrem. Die Kombination führt zu einem rapiden, unkontrollierbaren Blutdruckabfall, der in Kreislaufversagen oder Herzinfarkt enden kann.</p>
+                    </div>
                 </div>
+
             </div>
         </div>
 
         <div id="mechanics" class="panel">
             <h1>Mechanik & Kontrolle</h1>
-            <p class="subtitle">Override-Protokolle für das zentrale Nervensystem.</p>
+            <p class="subtitle">Physische Override-Protokolle zur Überlistung des zentralen Nervensystems.</p>
             <div class="grid">
+                
                 <div class="card">
-                    <h3>Not-Aus (Reverse Kegel)</h3>
-                    <p>Beckenboden bewusst entspannen und leicht nach außen drücken, um den Ejakulationsreflex in Millisekunden abzubrechen.</p>
+                    <h3>Der Not-Aus (Reverse Kegel)</h3>
+                    <p>Das Standard-Beckenbodentraining (Kegel) stärkt die Muskulatur für härtere Erektionen. Beim stundenlangen Edging verkrampft dieser Muskel jedoch oft, was den unaufhaltsamen "Point of no Return" auslöst. Der Reverse Kegel ist der manuelle Systemabbruch.</p>
+                    <p><strong>Ausführung:</strong> Sobald das Gefühl der Unausweichlichkeit eintritt, wird die Stimulation sofort gestoppt. Gleichzeitig wird der Beckenboden aktiv <em>entspannt und leicht nach außen gedrückt</em> – exakt die Muskelbewegung, die man nutzt, um den Urinstrahl zu beschleunigen oder Blähungen freizusetzen. Dies öffnet die Prostata, signalisiert dem Gehirn Entspannung und bricht den Ejakulationsreflex in Millisekunden ab.</p>
                 </div>
+
                 <div class="card">
-                    <h3>P-Spot Targeting</h3>
-                    <p>Kleiner, gebogener Dildo. Winkel in Richtung Bauchdecke. Hebelwirkung durch Herabdrücken des Griffs. Nicht stechen, nur sanft massieren.</p>
+                    <h3>P-Spot Targeting (Prostata-Mechanik)</h3>
+                    <p>Die Prostata liegt lediglich 5 bis 7 Zentimeter im Rektum in Richtung der Bauchdecke. Tiefe Penetration ist hierbei das falsche Vorgehen.</p>
+                    <ol>
+                        <li><strong>Werkzeug:</strong> Ein kleiner, gebogener Dildo oder ein spezielles P-Spot-Toy.</li>
+                        <li><strong>Vektor:</strong> Das Tool wird eingeführt, wobei die Biegung nach oben (Richtung Bauchnabel/Penis) zeigt.</li>
+                        <li><strong>Hebelwirkung:</strong> Anstatt zu stoßen, wird der äußere Griff des Toys leicht nach unten in Richtung Matratze gedrückt. Dies hebelt die Spitze im Inneren nach oben, direkt gegen die walnussgroße Wölbung der Prostata.</li>
+                        <li><strong>Stimulation:</strong> Eine sanfte "Komm her"-Wippbewegung massiert die Drüse, bis sich ein tiefes, intensives Druckgefühl (ähnlich einem starken Harndrang) aufbaut – der Auslöser für den Prostata-Orgasmus.</li>
+                    </ol>
                 </div>
+
                 <div class="card">
-                    <h3>Death Grip Reset</h3>
-                    <p>Um abgestumpfte Nerven zu rekalibrieren: <b>3-Finger-Regel</b> (Nur Daumen, Zeige- und Mittelfinger nutzen). Striktes Verbot von trockener Reibung; 100% Nutzung von Industrial Lube zwingend erforderlich.</p>
+                    <h3>Death Grip Reset (Sensibilitäts-Kalibrierung)</h3>
+                    <p>Exzessiver Druck beim Masturbieren führt zur Desensibilisierung der Nervenenden an der Eichel ("Death Grip Syndrome"). Das System muss auf Werkseinstellungen zurückgesetzt werden, um reguläre Reize wieder verarbeiten zu können.</p>
+                    <p><strong>Die 3-Finger-Regel:</strong> Für einen Zeitraum von 7 bis 14 Tagen darf bei manueller Stimulation ausschließlich Daumen, Zeige- und Mittelfinger verwendet werden. Ring- und kleiner Finger bleiben abgespreizt. Dies halbiert den mechanischen Anpressdruck. Gleichzeitig gilt ein striktes Verbot für trockene Reibung; die Nutzung von hochviskosem Gleitgel ist zwingend erforderlich.</p>
                 </div>
+
             </div>
         </div>
 
         <div id="hardware" class="panel">
             <h1>Hardware & Setup</h1>
-            <p class="subtitle">Externe Module für Ausdauer und Sensorik.</p>
+            <p class="subtitle">Externe Module für maximale Ausdauer, Haptik und automatisierte Sensorik.</p>
             <div class="grid">
+                
                 <div class="card">
-                    <h3>Premium DIY Surrogate</h3>
-                    <p><b>Gehäuse:</b> Thermoskanne.<br><b>Matrix:</b> Gefrierbeutel mit Warmwasser-Speisestärke-Mischung.<br><b>Interface:</b> Kondom mit Gleitgel mittig platziert.</p>
+                    <h3>Premium DIY Surrogate (Das Thermos-Matrix-System)</h3>
+                    <p>Herkömmliche DIY-Lösungen aus Schwämmen sind haptisch unzureichend. Wir bauen eine Struktur, die das Gewicht, die Dichte und die Wärme von menschlichem Gewebe imitiert (Non-Newtonsche Fluiddynamik).</p>
+                    <ul>
+                        <li><strong>Gehäuse:</strong> Eine saubere, isolierende Thermoskanne (hält die Temperatur für Stunden).</li>
+                        <li><strong>Die Matrix:</strong> Eine Mischung aus sehr warmem Wasser und Speisestärke, abgefüllt in zwei robuste Gefrierbeutel (Luft vorher komplett herausdrücken). Dies simuliert die Konsistenz von Unterhautfettgewebe und Muskulatur (Oobleck-Effekt).</li>
+                        <li><strong>Montage:</strong> Beide warmen Beutel in die Thermoskanne stopfen. Ein großzügig mit Gleitgel gefülltes Kondom mittig zwischen die Beutel schieben und den Ring über den Rand der Kanne stülpen.</li>
+                    </ul>
                 </div>
+
                 <div class="card">
-                    <h3>Industrial Lube</h3>
-                    <p>X-Lube oder J-Lube (Pulver). Selbst anmischbar, trocknet nicht ein, zieht endlose Fäden. Reaktivierung per Wasserspritzer.</p>
+                    <h3>Industrial Grade Lubrication</h3>
+                    <p>Standard-Gleitgele auf Wasserbasis trocknen ein, Silikongele lassen sich kaum abwaschen. Die Lösung für Langzeit-Sessions sind Polymere aus dem Veterinärbereich.</p>
+                    <p><strong>X-Lube oder J-Lube:</strong> Es handelt sich um Polyethylenoxid-Pulver. Man mischt es selbst mit Wasser an und kann die Viskosität frei bestimmen. Es zieht endlose, realistische Fäden und simuliert natürliche Sekrete perfekt. Das Wichtigste: Es trocknet nicht ein. Wird es nach Stunden zäh, reicht ein einziger Sprühstoß Wasser, um es sofort wieder zu 100 % gleitfähig zu machen.</p>
                 </div>
+
                 <div class="card">
                     <h3>E-Stim / TENS Integration</h3>
-                    <p><b>Setup:</b> Pad 1 auf den Damm (Perineum), Pad 2 auf das Steißbein.<br><b>Sicherheit:</b> Niemals Pads oberhalb der Gürtellinie anbringen (Herz-Risiko!).<br><b>Effekt:</b> Automatisiertes, freihändiges Pulsieren der Prostata und des Beckenbodens.</p>
+                    <p>Elektrische Muskelstimulation hackt sich direkt in die Nervenbahnen ein und ermöglicht automatisierte, freihändige Rhythmen, ideal für Prostata-Play und tiefe Beckenbodenstimulation.</p>
+                    <p><strong>Routing & Setup:</strong> Benötigt wird ein handelsübliches TENS-Gerät. Pad 1 wird auf dem Damm (Perineum, zwischen Hoden und Anus) platziert, Pad 2 auf dem Steißbein (unterer Rücken). Auf niedriger Frequenz erzeugt dies ein stundenlanges, tiefes Pochen.</p>
+                    <div class="warning">
+                        <strong>Kardiovaskuläre Sicherheit</strong>
+                        <p>Elektrodenpads dürfen NIEMALS oberhalb der Gürtellinie, quer über die Brust oder an den Armen angebracht werden. Stromflüsse dürfen unter keinen Umständen den Herzmuskel kreuzen (Gefahr von tödlichen Rhythmusstörungen).</p>
+                    </div>
                 </div>
+
             </div>
         </div>
 
         <div id="neuro" class="panel">
             <h1>Neuro & Trance</h1>
-            <p class="subtitle">Software-Hacks für Herzschlag und Dopamin-Schleifen.</p>
+            <p class="subtitle">Software-Hacks zur Manipulation von Herzschlag, Hirnströmen und Dopamin-Schleifen.</p>
             <div class="grid">
+                
                 <div class="card">
-                    <h3>Box Breathing (Puls-Kontrolle)</h3>
-                    <p>Rhythmus: 4s einatmen, 4s halten, 4s ausatmen, 4s halten. Zwingt das sympathische Nervensystem herunter und verhindert versehentliche Peaks.</p>
+                    <h3>Das Dopamin-Stacking (Der Goon-State)</h3>
+                    <p>Das Ziel ist die Verlängerung der Erregungskurve. Der Orgasmus schüttet Prolaktin aus, was zur sofortigen Ermüdung führt. Durch das Verweigern des Höhepunkts (Edging am 95%-Plateau) wird das Gehirn gezwungen, kontinuierlich massiv Dopamin nachzuproduzieren. Nach 1 bis 2 Stunden führt dies zu einem tiefen, tranceähnlichen Zustand.</p>
                 </div>
+
                 <div class="card">
-                    <h3>Audio-Anchoring</h3>
-                    <p>Verknüpfe spezifische Soundtracks (Binaural Beats/Hypnose) <b>ausschließlich</b> mit deinen Sessions. Das Gehirn konditioniert sich und schüttet bei diesen Frequenzen künftig auf Kommando Dopamin aus.</p>
+                    <h3>Box Breathing (Sympathikus-Kontrolle)</h3>
+                    <p>Ein zu hoher Herzschlag signalisiert dem Körper Stress und triggert reflexartig den Ejakulationsreflex. Die Atemkontrolle kühlt das System mechanisch herunter.</p>
+                    <p><strong>Die 4-4-4-4 Methode:</strong> 4 Sekunden tief in den Bauch einatmen, 4 Sekunden die Luft anhalten, 4 Sekunden langsam ausatmen, 4 Sekunden mit leerer Lunge halten. Dieser Rhythmus aktiviert das parasympathische Nervensystem und holt dich vom "Point of no Return" zurück.</p>
                 </div>
+
                 <div class="card">
-                    <h3>Intervall-Zyklen</h3>
-                    <p>Nutze Timer: 25 Minuten Overload (aktive Stimulation), 5 Minuten kompletter Stopp (Augen zu, Hände weg). Verhindert Desensibilisierung und macht Peaks intensiver.</p>
+                    <h3>Sensory Overload & Flash-Conditioning</h3>
+                    <p>Um das bewusste, rationale Denken abzuschalten, muss der visuelle Kortex überlastet werden.</p>
+                    <ul>
+                        <li><strong>Flicker-Raten:</strong> Die Nutzung von Strobe-Edits, bei denen das Bild alle 0,5 bis 1,5 Sekunden wechselt, umgeht den präfrontalen Kortex. Das Gehirn hat keine Zeit, den Reiz zu verarbeiten, was zu einer ununterbrochenen Dopamin-Schleife führt.</li>
+                        <li><strong>Audio-Anchoring (Pawlowscher Effekt):</strong> Verknüpfe spezifische Audio-Tracks (tiefe Binaural Beats, Dark Synthwave) <em>ausschließlich</em> mit deinen Sessions. Das Gehirn konditioniert sich physisch darauf und schüttet künftig bereits beim Hören der ersten Töne auf Kommando Dopamin aus.</li>
+                        <li><strong>Intervall-Zyklen:</strong> Arbeite mit Timern (z. B. 25 Minuten Overload, 5 Minuten kompletter Stopp mit geschlossenen Augen). Dies verhindert die Desensibilisierung der Rezeptoren und macht jeden Peak intensiver.</li>
+                    </ul>
                 </div>
-                <div class="card">
-                    <h3>Flash-Conditioning</h3>
-                    <p>Nutzung von Strobe-Edits mit Bildwechseln alle 0,5 bis 1,5 Sekunden. Überlastet den visuellen Kortex, schaltet bewusstes Denken ab und erzwingt eine kontinuierliche Dopamin-Schleife ohne Refraktärzeit.</p>
-                </div>
+
             </div>
         </div>
+
     </div>
 
     <script>
         function switchTab(tabId) {
+            // Remove active classes
             document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             
+            // Add active class to selected tab content
             document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
             event.currentTarget.classList.add('active');
+            
+            // Scroll top smoothly when switching tabs
+            document.querySelector('.content').scrollTo(0, 0);
         }
     </script>
 </body>
