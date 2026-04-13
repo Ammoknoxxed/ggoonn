@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocol Base // V1.0</title>
+    <title>Protocol Base // V1.1</title>
     <style>
         :root {
             --bg-dark: #0f0f13;
@@ -48,6 +48,7 @@
         <button class="nav-btn active" onclick="switchTab('biology')">Biologische Basis</button>
         <button class="nav-btn" onclick="switchTab('mechanics')">Mechanik & Kontrolle</button>
         <button class="nav-btn" onclick="switchTab('hardware')">Hardware & Setup</button>
+        <button class="nav-btn" onclick="switchTab('neuro')">Neuro & Trance</button>
     </div>
 
     <div class="content">
@@ -104,15 +105,32 @@
                 </div>
             </div>
         </div>
+
+        <div id="neuro" class="panel">
+            <h1>Neuro & Trance</h1>
+            <p class="subtitle">Software-Hacks für Herzschlag und Dopamin-Schleifen.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Box Breathing (Puls-Kontrolle)</h3>
+                    <p>Rhythmus: 4s einatmen, 4s halten, 4s ausatmen, 4s halten. Zwingt das sympathische Nervensystem herunter und verhindert versehentliche Peaks.</p>
+                </div>
+                <div class="card">
+                    <h3>Audio-Anchoring</h3>
+                    <p>Verknüpfe spezifische Soundtracks (Binaural Beats/Hypnose) <b>ausschließlich</b> mit deinen Sessions. Das Gehirn konditioniert sich und schüttet bei diesen Frequenzen künftig auf Kommando Dopamin aus.</p>
+                </div>
+                <div class="card">
+                    <h3>Intervall-Zyklen</h3>
+                    <p>Nutze Timer: 25 Minuten Overload (aktive Stimulation), 5 Minuten kompletter Stopp (Augen zu, Hände weg). Verhindert Desensibilisierung und macht Peaks intensiver.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         function switchTab(tabId) {
-            // Remove active classes
             document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
             
-            // Add active classes to target
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
