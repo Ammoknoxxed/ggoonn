@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol Base // V1.0</title>
+    <style>
+        :root {
+            --bg-dark: #0f0f13;
+            --surface: #1c1c24;
+            --accent: #00ffcc;
+            --text-main: #e2e2e2;
+            --text-muted: #888;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Sidebar */
+        .sidebar { width: 260px; background: var(--surface); padding: 2rem 1rem; border-right: 1px solid #333; display: flex; flex-direction: column; gap: 10px; }
+        .logo { font-size: 1.2rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 12px 15px; text-align: left; font-size: 1rem; cursor: pointer; border-radius: 6px; transition: all 0.2s; }
+        .nav-btn:hover { background: rgba(0, 255, 204, 0.1); color: var(--text-main); }
+        .nav-btn.active { background: var(--accent); color: #000; font-weight: bold; }
+
+        /* Main Content */
+        .content { flex: 1; padding: 3rem 4rem; overflow-y: auto; }
+        .panel { display: none; animation: fadeIn 0.3s ease; }
+        .panel.active { display: block; }
+        
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 1.1rem; }
+        
+        /* Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--surface); padding: 1.5rem; border-radius: 12px; border: 1px solid #333; transition: transform 0.2s; }
+        .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+        .card h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem; }
+        .card p, .card li { color: var(--text-muted); line-height: 1.6; margin-bottom: 0.5rem; }
+        .card ul { padding-left: 1.5rem; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">Protocol_Base</div>
+        <button class="nav-btn active" onclick="switchTab('biology')">Biologische Basis</button>
+        <button class="nav-btn" onclick="switchTab('mechanics')">Mechanik & Kontrolle</button>
+        <button class="nav-btn" onclick="switchTab('hardware')">Hardware & Setup</button>
+    </div>
+
+    <div class="content">
+        <div id="biology" class="panel active">
+            <h1>Biologische Basis</h1>
+            <p class="subtitle">System-Upgrades für Output und Parameter.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Volume Protocol (Holy Grail)</h3>
+                    <ul>
+                        <li>Zink (50 mg/Tag)</li>
+                        <li>Pygeum Africanum (100 mg/Tag)</li>
+                        <li>Sojalecithin (1200 mg/Tag)</li>
+                        <li>Hydration: Min. 3-4 Liter Wasser</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Taste Patch</h3>
+                    <ul>
+                        <li><b>Whitelist:</b> Ananas, Papaya, Wasser</li>
+                        <li><b>Blacklist:</b> Nikotin, Kaffee, Knoblauch</li>
+                        <li><b>Laufzeit:</b> 24 - 48 Stunden</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="mechanics" class="panel">
+            <h1>Mechanik & Kontrolle</h1>
+            <p class="subtitle">Override-Protokolle für das zentrale Nervensystem.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Not-Aus (Reverse Kegel)</h3>
+                    <p>Beckenboden bewusst entspannen und leicht nach außen drücken, um den Ejakulationsreflex in Millisekunden abzubrechen.</p>
+                </div>
+                <div class="card">
+                    <h3>P-Spot Targeting</h3>
+                    <p>Kleiner, gebogener Dildo. Winkel in Richtung Bauchdecke. Hebelwirkung durch Herabdrücken des Griffs. Nicht stechen, nur sanft massieren.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="hardware" class="panel">
+            <h1>Hardware & Setup</h1>
+            <p class="subtitle">Externe Module für Ausdauer und Sensorik.</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Premium DIY Surrogate</h3>
+                    <p><b>Gehäuse:</b> Thermoskanne.<br><b>Matrix:</b> Gefrierbeutel mit Warmwasser-Speisestärke-Mischung.<br><b>Interface:</b> Kondom mit Gleitgel mittig platziert.</p>
+                </div>
+                <div class="card">
+                    <h3>Industrial Lube</h3>
+                    <p>X-Lube oder J-Lube (Pulver). Selbst anmischbar, trocknet nicht ein, zieht endlose Fäden. Reaktivierung per Wasserspritzer.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            // Remove active classes
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            // Add active classes to target
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
