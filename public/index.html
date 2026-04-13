@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocol Base // V3.0 - Global Documentation</title>
+    <title>Protocol Base // V5.0 - The Ultimate Public Encyclopedia</title>
     <style>
         :root {
             --bg-dark: #0a0a0e;
@@ -19,7 +19,7 @@
         
         .sidebar { width: 300px; background: var(--surface); padding: 2rem 1.5rem; border-right: 1px solid #2a2a35; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
         .logo { font-size: 1.3rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid #2a2a35; padding-bottom: 1rem; }
-        .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 14px 16px; text-align: left; font-size: 1rem; cursor: pointer; border-radius: 8px; transition: all 0.2s; font-weight: 500; }
+        .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 14px 16px; text-align: left; font-size: 0.95rem; cursor: pointer; border-radius: 8px; transition: all 0.2s; font-weight: 500; }
         .nav-btn:hover { background: var(--surface-light); color: var(--text-main); }
         .nav-btn.active { background: rgba(0, 255, 204, 0.1); color: var(--accent); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
 
@@ -27,123 +27,228 @@
         .panel { display: none; animation: fadeIn 0.4s ease; }
         .panel.active { display: block; }
         
-        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; font-weight: 800; }
-        .subtitle { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.2rem; border-bottom: 1px solid #2a2a35; padding-bottom: 1.5rem; }
+        h1 { font-size: 2.8rem; margin-bottom: 0.5rem; font-weight: 800; color: #fff; }
+        .subtitle { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.1rem; border-bottom: 1px solid #2a2a35; padding-bottom: 1.5rem; }
         
-        .grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; max-width: 1000px; }
-        .card { background: var(--surface); padding: 2.5rem; border-radius: 20px; border: 1px solid #2a2a35; }
-        .card h2 { color: var(--accent); margin-bottom: 1.5rem; font-size: 1.8rem; border-left: 4px solid var(--accent); padding-left: 15px; }
-        .card h3 { color: var(--text-main); margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.3rem; }
-        .card p { color: var(--text-muted); margin-bottom: 1.2rem; }
-        .card ul { padding-left: 1.5rem; color: var(--text-muted); }
-        .card li { margin-bottom: 0.8rem; }
+        .grid { display: grid; grid-template-columns: 1fr; gap: 4rem; max-width: 1000px; }
+        .card { background: var(--surface); padding: 3rem; border-radius: 24px; border: 1px solid #2a2a35; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card h2 { color: var(--accent); margin-bottom: 1.5rem; font-size: 2rem; border-left: 5px solid var(--accent); padding-left: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .card h3 { color: #fff; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.5rem; border-bottom: 1px solid #333; padding-bottom: 0.5rem; }
+        .card p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.05rem; text-align: justify; }
+        .card ul, .card ol { padding-left: 1.5rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .card li { margin-bottom: 1rem; }
         .card strong { color: var(--accent); }
 
-        .warning-box { background: rgba(255, 68, 68, 0.1); border: 1px solid var(--accent-danger); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
-        .warning-box h4 { color: var(--accent-danger); margin-bottom: 0.5rem; text-transform: uppercase; }
+        .image-box { 
+            background: #000; 
+            border: 2px solid #2a2a35; 
+            border-radius: 16px; 
+            margin: 2rem 0; 
+            overflow: hidden; 
+            position: relative;
+            text-align: center;
+        }
+        .image-box img { width: 100%; height: auto; display: block; opacity: 0.8; }
+        .image-caption { background: #1a1a1a; padding: 12px; font-size: 0.9rem; color: var(--accent); border-top: 1px solid #2a2a35; font-style: italic; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .warning-box { background: rgba(255, 68, 68, 0.05); border: 1px solid var(--accent-danger); padding: 2rem; border-radius: 16px; margin: 2rem 0; }
+        .warning-box h4 { color: var(--accent-danger); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; }
+        .warning-box p { color: #ffcccc; margin: 0; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
     <div class="sidebar">
         <div class="logo">Protocol_Base</div>
-        <button class="nav-btn active" onclick="switchTab('physiology')">Physiologie & Penis</button>
-        <button class="nav-btn" onclick="switchTab('control')">Kontrolle & Ausdauer</button>
-        <button class="nav-btn" onclick="switchTab('anal')">Prostata & Anal</button>
-        <button class="nav-btn" onclick="switchTab('diy')">DIY & Teledildonics</button>
+        <button class="nav-btn active" onclick="switchTab('size')">1. Penis-Optimierung</button>
+        <button class="nav-btn" onclick="switchTab('stamina')">2. Ausdauer & Delay</button>
+        <button class="nav-btn" onclick="switchTab('ejaculate')">3. Volumen-Maximierung</button>
+        <button class="nav-btn" onclick="switchTab('autofellatio')">4. Autofellatio-Guide</button>
+        <button class="nav-btn" onclick="switchTab('prostate')">5. Prostata-Expertise</button>
+        <button class="nav-btn" onclick="switchTab('diy-hardware')">6. DIY-Hardware</button>
+        <button class="nav-btn" onclick="switchTab('tech')">7. Lovense & Tech</button>
+        <button class="nav-btn" onclick="switchTab('maker')">8. Maker-Protokoll</button>
     </div>
 
     <div class="content">
-        <div id="physiology" class="panel active">
-            <h1>Physiologie & Penis</h1>
-            <p class="subtitle">Wissenschaftliche Analyse zu Größe, Volumen und Potenz.</p>
+        
+        <div id="size" class="panel active">
+            <h1>Penis-Optimierung</h1>
+            <p class="subtitle">Wissenschaftliche Fakten zu Länge, Dicke und visueller Präsenz.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>1. Penis-Vergrößerung: Realität vs. Mythos</h2>
-                    <p>Die anatomische Länge und Dicke des Penis ist primär genetisch determiniert. Dennoch gibt es mechanische und optische Optimierungsmöglichkeiten.</p>
-                    <h3>Mechanische Methoden</h3>
-                    <ul>
-                        <li><strong>Vakuumpumpen:</strong> Erzeugen durch Unterdruck ein Ödem im Gewebe. Dies führt zu einer temporären Vergrößerung für 2-4 Stunden. Übermäßiger Gebrauch schädigt die Kapillaren.</li>
-                        <li><strong>Gewichtsmanagement:</strong> Der effektivste "natürliche" Weg. Das Reduzieren des Schambein-Fettpolsters (Fupa) legt verdeckte Zentimeter des Penisschafts frei.</li>
-                    </ul>
-                    <h3>Chirurgische Interventionen</h3>
-                    <p>Eingriffe wie die Durchtrennung der Haltebänder (Ligamentolyse) können die sichtbare Länge im schlaffen Zustand erhöhen, führen aber oft zu einem instabilen Erektionswinkel.</p>
-                </div>
-
-                <div class="card">
-                    <h2>2. Maximierung des Ejakulat-Volumens</h2>
-                    <p>Das Volumen der Ejakulation setzt sich aus Sekreten der Hoden, der Bläschendrüsen und der Prostata zusammen.</p>
-                    <ul>
-                        <li><strong>Supplementierung:</strong> Zink, L-Arginin und Lecithin unterstützen die zelluläre Arbeit der Drüsen.</li>
-                        <li><strong>Hydration:</strong> Ohne ausreichende Wasserzufuhr (3-4L täglich) kann das System keine überschüssige Flüssigkeit produzieren.</li>
-                        <li><strong>Abstinenz-Zyklen:</strong> Ein Intervall von 3 bis 5 Tagen ermöglicht die maximale Akkumulation der Samenflüssigkeit.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="control" class="panel">
-            <h1>Kontrolle & Ausdauer</h1>
-            <p class="subtitle">Techniken zur Verzögerung und Intensivierung.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>1. Ejakulations-Management</h2>
-                    <h3>Start-Stopp & Edging</h3>
-                    <p>Das bewusste Navigieren am "Point of no Return". Durch das wiederholte Annähern an die Orgasmus-Schwelle wird das Gehirn darauf trainiert, höhere Erregungslevel ohne Reflexauslösung zu tolerieren.</p>
-                    <h3>Beckenboden-Konditionierung</h3>
-                    <p>Kegel-Übungen stärken den Musculus pubococcygeus (PC-Muskel), was eine willkürliche Unterbrechung des Samenergusses ermöglicht.</p>
-                </div>
-
-                <div class="card">
-                    <h2>2. Sensibilitäts-Kontrolle</h2>
-                    <p>Die Nutzung von Topika (Sprays mit Lidocain) reduziert die Reizleitung der Nervenenden an der Eichel. Dies sollte strategisch 10-15 Minuten vor der Penetration erfolgen.</p>
-                </div>
-            </div>
-        </div>
-
-        <div id="anal" class="panel">
-            <h1>Prostata & Anal-Orgasmus</h1>
-            <p class="subtitle">Der "G-Punkt" des Mannes: Anatomie und Stimulation.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>1. Die Anatomie der Prostata</h2>
-                    <p>Die Prostata liegt etwa 5-7 cm tief im Rektum an der vorderen Wand (Richtung Bauch). Sie reagiert extrem sensibel auf rhythmischen Druck.</p>
-                    <h3>Vorbereitung & Hygiene</h3>
-                    <ul>
-                        <li><strong>Anale Spülung:</strong> Die Nutzung eines Klistiers sorgt für ein sicheres und sauberes Empfinden.</li>
-                        <li><strong>Gleitgel-Matrix:</strong> Da der Anus keine Eigenfeuchtigkeit produziert, ist die Verwendung von hochwertigem Gleitgel (wasserbasiert für Spielzeuge) essenziell.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="diy" class="panel">
-            <h1>DIY & Teledildonics</h1>
-            <p class="subtitle">Hardware-Hacks und interaktive Systeme.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>1. Premium DIY Taschenmuschi</h2>
-                    <p>Bauplan für ein stabiles, befestigbares System:</p>
-                    <ul>
-                        <li><strong>Gehäuse:</strong> PVC-Rohr oder Pringles-Dose zur mechanischen Stabilität.</li>
-                        <li><strong>Polsterung:</strong> Weiche Soft-Schwämme oder Handtuch-Rollen zur Druckregulierung.</li>
-                        <li><strong>Interface:</strong> Fixiertes Kondom oder Handschuh als Kontaktfläche.</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h2>2. Teledildonics & Open Source</h2>
-                    <p>Interaktive Toys wie von <strong>Lovense</strong> nutzen BLE (Bluetooth Low Energy) Protokolle.</p>
-                    <div class="warning-box">
-                        <h4>Sicherheitshinweis</h4>
-                        <p>Bei DIY-Elektronik im Intimbereich ist eine galvanische Trennung der Stromversorgung (Batteriebetrieb) zwingend erforderlich.</p>
+                    <h2>Anatomische Realität & Vergrößerung</h2>
+                    <p>Die Penisgröße ist primär durch die Elastizität der *Tunica Albuginea* und das Volumen der Schwellkörper festgelegt. Pillen oder Cremes sind biologisch nicht in der Lage, dieses Gewebe dauerhaft zu vergrößern.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 1.1: Querschnitt der Schwellkörper-Struktur.</div>
                     </div>
-                    <p>Nutze <strong>Buttplug.io</strong> als Middleware, um eigene Hardware (ESP32) mit gängiger Software und VR-Inhalten zu synchronisieren.</p>
+
+                    <h3>Methoden der Optimierung</h3>
+                    <ul>
+                        <li><strong>Vakuumpumpen:</strong> Mechanischer Unterdruck zieht Blut in die Kapillaren. Resultat: Temporäre Schwellung (2–4h). Gefahr: Gewebeschäden bei Überdruck.</li>
+                        <li><strong>Fupa-Reduktion:</strong> Durch Fettabbau am Schambein wird der im Körper liegende Teil des Schafts freigelegt. Dies bringt oft 1–3 cm sichtbare Länge.</li>
+                        <li><strong>Chirurgie:</strong> Die Durchtrennung der Haltebänder lässt den Penis im schlaffen Zustand länger wirken, schwächt aber die Stabilität der Erektion.</li>
+                    </ul>
                 </div>
             </div>
         </div>
+
+        <div id="stamina" class="panel">
+            <h1>Ausdauer & Delay</h1>
+            <p class="subtitle">Neuro-muskuläre Techniken für stundenlange Sessions.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Ejakulations-Reflex-Training</h2>
+                    <p>Der Samenerguss ist ein Reflexbogen des Rückenmarks. Dieser kann durch gezieltes Biofeedback und Desensibilisierung verzögert werden.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 2.1: Lokalisierung des PC-Muskels (Musculus pubococcygeus).</div>
+                    </div>
+
+                    <h3>Techniken</h3>
+                    <ul>
+                        <li><strong>Start-Stopp-Protokoll:</strong> Stimulation bis zum "Point of no Return" (95%), kompletter Stopp, Sinken der Erregung auf 50%, Wiederholung.</li>
+                        <li><strong>Beckenbodentraining (Kegels):</strong> Stärkt den Verschlussmechanismus. Täglich 3 Sätze à 15 Wiederholungen (Anspannen – Halten – Loslassen).</li>
+                        <li><strong>Topische Delay-Agents:</strong> Sprays mit Lidocain reduzieren die Reizweiterleitung der Eichel-Nerven.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="ejaculate" class="panel">
+            <h1>Volumen-Maximierung</h1>
+            <p class="subtitle">Chemische und biologische Protokolle für maximalen Output.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Drüsen-Synthese & Volumen</h2>
+                    <p>Ejakulat besteht zu 95% aus Drüsenflüssigkeit. Das Volumen lässt sich durch die Nährstoffversorgung dieser Drüsen (Prostata und Bläschendrüsen) direkt beeinflussen.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 3.1: Produktionseinheiten der Samenflüssigkeit.</div>
+                    </div>
+
+                    <h3>Der Volume-Stack</h3>
+                    <ul>
+                        <li><strong>Abstinenz:</strong> Das System benötigt 3–5 Tage zur vollen Regeneration der Depots.</li>
+                        <li><strong>Lecithin & Zink:</strong> Erhöhen die Viskosität und die Synthese-Rate der Drüsen.</li>
+                        <li><strong>Hydration:</strong> Ohne 3–4 Liter Wasser täglich ist kein Volumenanstieg möglich.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="autofellatio" class="panel">
+            <h1>Autofellatio-Guide</h1>
+            <p class="subtitle">Extreme Flexibilität und anatomische Voraussetzungen.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Anatomische Voraussetzungen</h2>
+                    <p>Autofellatio erfordert eine extreme Dehnung der Lendenwirbelsäule und der hinteren Oberschenkelmuskulatur. Es ist ein langfristiges sportliches Ziel.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 4.1: Die Pflug-Pose als Basis-Dehnung.</div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4>Verletzungsrisiko</h4>
+                        <p>Erzwungene Beugung kann zu Bandscheibenvorfällen und Nackenfrakturen führen. Schmerz ist ein sofortiges Abbruchsignal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="prostate" class="panel">
+            <h1>Prostata-Expertise</h1>
+            <p class="subtitle">Der Weg zum tiefen Anal-Orgasmus.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Punktgenaue Stimulation</h2>
+                    <p>Die Prostata liegt 5–7 cm tief an der Vorderwand des Rektums. Sie reagiert auf Druck und Vibration.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 5.1: Der optimale Winkel für P-Spot Toys.</div>
+                    </div>
+
+                    <h3>Schritte zum Erfolg</h3>
+                    <ol>
+                        <li><strong>Entspannung:</strong> Anale Spülung (Enema) für hygienische Sicherheit.</li>
+                        <li><strong>Gleitgel:</strong> Massive Mengen an wasserbasiertem Gleitgel nutzen.</li>
+                        <li><strong>Vektor:</strong> Stimulation immer in Richtung Bauchnabel ausüben.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="diy-hardware" class="panel">
+            <h1>DIY-Hardware</h1>
+            <p class="subtitle">Konstruktion befestigbarer Masturbatoren.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Bauplan: Pringles-Matrix</h2>
+                    <p>Ein funktionales Gehäuse bietet Gegendruck und ermöglicht die freihändige Nutzung.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 6.1: Explosionszeichnung des DIY-Setups.</div>
+                    </div>
+
+                    <h3>Komponenten</h3>
+                    <ul>
+                        <li><strong>Gehäuse:</strong> Pringles-Dose oder PVC-Rohr.</li>
+                        <li><strong>Kern:</strong> Spülschwämme oder aufgerollte Handtücher.</li>
+                        <li><strong>Interface:</strong> Kondom oder Latex-Handschuh.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="tech" class="panel">
+            <h1>Lovense & Tech</h1>
+            <p class="subtitle">Übersicht über interaktive Teledildonics-Systeme.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Interaktive Hardware für Männer</h2>
+                    <p>Lovense-Toys integrieren sich via App in VR-Welten und synchrone Videoinhalte.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 7.1: Vergleich von Max (Masturbator) und Edge (Prostata).</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="maker" class="panel">
+            <h1>Maker-Protokoll</h1>
+            <p class="subtitle">Entwicklung eigener Teledildonics-Hardware.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>ESP32 & Buttplug.io Integration</h2>
+                    <p>Durch die Emulation von BLE-Protokollen können DIY-Toys mit professioneller Software gesteuert werden.</p>
+                    
+                    <div class="image-box">
+                        <div style="height: 300px; display: flex; align-items: center; justify-content: center; color: #444;"></div>
+                        <div class="image-caption">Abbildung 8.1: Schaltplan für Vibrations-Ansteuerung.</div>
+                    </div>
+
+                    <h3>Software-Stack</h3>
+                    <ul>
+                        <li><strong>Firmware:</strong> C++ auf ESP32 (Arduino IDE).</li>
+                        <li><strong>Middleware:</strong> Intiface / Buttplug.io.</li>
+                        <li><strong>Anwendung:</strong> Games, Scripted Videos, Remote Control.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
