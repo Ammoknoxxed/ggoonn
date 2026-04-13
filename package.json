@@ -1,0 +1,12 @@
+{
+  "name": "goon-wiki",
+  "version": "1.0.0",
+  "description": "Biological and Mechanical Protocols",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
