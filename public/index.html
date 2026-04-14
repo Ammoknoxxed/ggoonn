@@ -39,22 +39,28 @@
         .card li { margin-bottom: 0.8rem; }
         .card strong { color: var(--accent); }
 
+        /* UI Wireframe Styling für Images */
         .image-placeholder { 
             width: 100%; 
-            background: #000; 
-            border: 1px solid #3a3a45; 
+            min-height: 200px;
+            background: rgba(0, 255, 204, 0.05); 
+            border: 1px dashed var(--accent); 
             border-radius: 12px; 
             padding: 20px; 
-            text-align: center; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin: 1.5rem 0;
             color: var(--accent);
             font-style: italic;
+            font-size: 0.9rem;
+            text-align: center;
         }
 
         .warning-box { background: rgba(255, 68, 68, 0.1); border: 1px solid var(--accent-danger); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
         .warning-box h4 { color: var(--accent-danger); margin-bottom: 0.5rem; text-transform: uppercase; }
         
-        .code-block { background: #0a0a0e; padding: 1.5rem; border-radius: 8px; border: 1px solid #3a3a45; font-family: monospace; color: #a8b2d1; white-space: pre-wrap; font-size: 0.9rem; margin-bottom: 1rem; }
+        .code-block { background: #0a0a0e; padding: 1.5rem; border-radius: 8px; border: 1px solid #3a3a45; font-family: monospace; color: #a8b2d1; white-space: pre-wrap; font-size: 0.9rem; margin-bottom: 1rem; overflow-x: auto; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -78,16 +84,18 @@
     </div>
 
     <div class="content">
+        
         <div id="size" class="panel active">
             <h1>Penis-Optimierung</h1>
-            <p class="subtitle">Analyse zu anatomischen Grenzen und Optimierung.</p>
+            <p class="subtitle">Wissenschaftliche Analyse zu anatomischen Grenzen und optischer Maximierung.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Anatomische Realität</h2>
-                    <div class="image-placeholder"></div>
+                    <h2>Anatomische Realität & Risiken</h2>
+                    <p>Die physische Größe der Schwellkörper (Corpora cavernosa) ist genetisch limitiert. Operative Eingriffe wie die Durchtrennung des Haltebandes (Ligamentolyse) bringen lediglich im schlaffen Zustand optische Länge, beeinträchtigen aber den Erektionswinkel massiv.</p>
+                    <div class="image-placeholder">[UI: Medizinisches Querschnitt-Diagramm der Corpora cavernosa und des Haltebandes]</div>
                     <ul>
-                        <li><strong>Vakuumpumpen:</strong> Temporäre Schwellung durch Blutstau, Risiko bei Missbrauch.</li>
-                        <li><strong>Optische Optimierung:</strong> Reduktion des Schambein-Fettpolsters und konsequente Körperpflege verstärken die Sichtbarkeit des Penisschafts massiv.</li>
+                        <li><strong>Vakuumpumpen (Pumping):</strong> Erzeugen durch Unterdruck eine temporäre Hyperämie (Blutstau). Eine strikte Begrenzung auf 10-15 Minuten bei niedrigem Druck ist essenziell, um dauerhafte Mikrorisse im Gewebe zu verhindern.</li>
+                        <li><strong>Optische Optimierung:</strong> Die effektivste, risikofreie Methode. Die Reduktion des suprapubischen Fettpolsters ("Fupa") durch Gewichtsabnahme kann 1 bis 2,5 cm verborgenen Schaft freilegen. Eine konsequente Rasur verstärkt diesen optischen Effekt.</li>
                     </ul>
                 </div>
             </div>
@@ -95,14 +103,16 @@
         
         <div id="stamina" class="panel">
             <h1>Ausdauer & Delay</h1>
-            <p class="subtitle">Neuro-muskuläre Techniken für maximale Kontrolle.</p>
+            <p class="subtitle">Neuro-muskuläre Techniken für maximale Kontrolle am Point of No Return.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Kontroll-Protokoll</h2>
-                    <div class="image-placeholder">[Image showing the human pelvic floor muscles and Kegel exercise movement]</div>
+                    <h2>Das Edging-Protokoll</h2>
+                    <p>Ausdauer ist kein Zufall, sondern das Resultat neuronaler Konditionierung. Das Ziel ist es, das Gehirn daran zu gewöhnen, hohe Erregungslevel auszuhalten, ohne den Sympathikus zur Ejakulation abfeuern zu lassen.</p>
+                    <div class="image-placeholder">[UI: Interaktives Diagramm der Erregungskurve (1-10) mit "Plateau-Phase"]</div>
                     <ul>
-                        <li><strong>Reverse Kegel:</strong> Aktives Entspannen und "Hinausdrücken" des Beckenbodens unterbricht den Ejakulationsreflex.</li>
-                        <li><strong>Box Breathing:</strong> Taktische Atmung (4 Sek. Ein, 4 Sek. Halten, 4 Sek. Aus, 4 Sek. Halten) zur Senkung des Herzschlags.</li>
+                        <li><strong>Arousal Mapping (Die 1-10 Skala):</strong> Lerne, deine Erregung in Echtzeit zu bewerten. Bei Level 8,5 muss die Stimulation aktiv gedrosselt werden. Wer bis zur 9 ("Point of no Return") wartet, übergibt die Kontrolle an das autonome Nervensystem.</li>
+                        <li><strong>Reverse Kegel:</strong> Der wichtigste physische Override-Schalter. Anstatt den Beckenboden bei Erregung anzuspannen (was die Prostata komprimiert), drücke den Muskel aktiv nach außen (ähnlich dem Beschleunigen des Urinstrahls). Dies weitet das Gewebe und bricht das neuronale Signal sofort ab.</li>
+                        <li><strong>Box Breathing (Tactical Breath):</strong> 4 Sekunden einatmen, 4 Sekunden halten, 4 Sekunden ausatmen, 4 Sekunden halten. Diese Technik der Navy SEALs zwingt das Herz-Kreislauf-System in den Ruhezustand (Parasympathikus-Aktivierung) und macht eine Ejakulation physiologisch nahezu unmöglich.</li>
                     </ul>
                 </div>
             </div>
@@ -110,14 +120,17 @@
 
         <div id="ejaculate" class="panel">
             <h1>Volumen-Maximierung</h1>
-            <p class="subtitle">Der "Holy Grail Stack" für maximalen Output.</p>
+            <p class="subtitle">Der "Holy Grail Stack" für extremen Output und Drüsensekretion.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Biochemische Unterstützung</h2>
+                    <h2>Biochemische & Physische Unterstützung</h2>
+                    <p>Das Volumen des Ejakulats besteht nur zu etwa 2-5% aus Spermien. Der Rest ist Samenflüssigkeit aus den Bläschendrüsen (Vesiculae seminales) und der Prostata. Diese Produktion lässt sich durch gezielte Nährstoffe maximieren.</p>
                     <ul>
-                        <li><strong>L-Arginin & L-Citrullin:</strong> Verbessern die Stickstoffmonoxid-Produktion und Durchblutung.</li>
-                        <li><strong>Lecithin:</strong> Erhöht signifikant das Volumen des Ejakulats durch Unterstützung der Drüsensekretion.</li>
-                        <li><strong>Zink & Pygeum:</strong> Fördern die Gesundheit der Prostata und die Spermienqualität.</li>
+                        <li><strong>Hydration Base:</strong> Mindestens 3-4 Liter Wasser in den 24 Stunden vor der Session. Ohne Wasserbasis bleibt jeder chemische Stack wirkungslos.</li>
+                        <li><strong>L-Arginin & L-Citrullin (3000mg):</strong> Aminosäuren, die als Vasodilatatoren (Gefäßerweiterer) wirken. Sie verbessern die Durchblutung des Beckens und die Härte massiv.</li>
+                        <li><strong>Lecithin (1200mg):</strong> Der Haupttreiber für das reine Volumen. Soy- oder Sonnenblumen-Lecithin unterstützt die Sekretion der Drüsen und erhöht die Viskosität.</li>
+                        <li><strong>Zink (30-50mg) & Pygeum:</strong> Fördern die langfristige Gesundheit der Prostata und erhöhen die Dichte und weiße Färbung des Outputs.</li>
+                        <li><strong>Mechanischer Trigger (Edging):</strong> Mehrere Stunden auf dem Plateau (Level 8) signalisieren dem Körper konstanten "Bedarf", wodurch die Drüsen vor dem finalen Release maximal hochfahren.</li>
                     </ul>
                 </div>
             </div>
@@ -125,31 +138,89 @@
 
         <div id="autofellatio" class="panel">
             <h1>Autofellatio-Guide</h1>
-            <p class="subtitle">Flexibilität und biomechanisches Training.</p>
+            <p class="subtitle">Extreme Flexibilität, biomechanisches Training und Risikomanagement.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Trainingsplan</h2>
-                    <div class="image-placeholder"></div>
-                    <p>Erfordert extreme Flexibilität der Lendenwirbelsäule.</p>
+                    <h2>Biomechanik & Trainingsplan</h2>
+                    <p>Dieses Protokoll erfordert keine überdurchschnittliche Länge, sondern primär extreme Flexibilität in der Lendenwirbelsäule und der rückwärtigen Oberschenkelmuskulatur (Hamstrings).</p>
+                    <div class="image-placeholder">[UI: Anatomische Vektorgrafik der "Halasana / Plow Pose" mit markierten Belastungszonen der Wirbelsäule]</div>
                     <ul>
-                        <li><strong>Plow Pose (Halasana):</strong> Die wichtigste Dehnung für die nötige Wirbelsäulenkrümmung.</li>
-                        <li><strong>Core-Stability:</strong> Starke Bauchmuskeln sind nötig, um das Becken kontrolliert zum Gesicht zu führen.</li>
+                        <li><strong>Plow Pose (Halasana):</strong> Die fundamentale Yoga-Übung. In Rückenlage die Beine gestreckt hinter den Kopf führen. Dies dehnt die gesamte dorsale Kette.</li>
+                        <li><strong>Kompression des Brustkorbs:</strong> Ein limitierender Faktor ist oft die Atmung. Trainiere flache Bauchatmung in stark komprimierten Posen, um Panikreflexe zu vermeiden.</li>
+                        <li><strong>Winkel-Optimierung:</strong> Die Beine nicht nur gerade nach hinten werfen, sondern die Knie leicht nach außen rotieren, um das Becken tiefer Richtung Gesicht sinken zu lassen.</li>
                     </ul>
+                    <div class="warning-box">
+                        <h4>Verletzungsrisiko (Cervical Spine)</h4>
+                        <p>Die Halswirbelsäule trägt in dieser Position extremes Gewicht. Bei einem stechenden Schmerz oder Taubheitsgefühl in den Armen (Nerveneinklemmung) muss das Manöver sofort und langsam abgebrochen werden. Bandscheibenvorfälle (Prolaps) sind ein reales Risiko bei fehlendem Aufwärmen.</p>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div id="prostate" class="panel">
             <h1>Prostata-Expertise</h1>
-            <p class="subtitle">Der "P-Punkt" Orgasmus.</p>
+            <p class="subtitle">Navigation, Stimulation und der Weg zum P-Punkt Orgasmus.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Lokalisierung</h2>
-                    <div class="image-placeholder"></div>
-                    <p>Die Prostata liegt ca. 5-7 cm tief an der Bauchseite der Darmwand.</p>
+                    <h2>Anatomie & Vorbereitung</h2>
+                    <p>Ein Prostata-Orgasmus nutzt ein völlig anderes neurologisches Netzwerk als penile Stimulation. Das Gewebe ist stark mit Nervenenden durchzogen und reagiert auf Druck, nicht auf Reibung.</p>
+                    <div class="image-placeholder">[UI: Sagittalschnitt des männlichen Beckens, Hervorhebung der Prostata (5-7cm Tiefe) relativ zum Rektum]</div>
                     <ul>
-                        <li><strong>"Come-hither"-Bewegung:</strong> Sanfte, hakende Bewegung mit dem Finger oder einem Toy.</li>
-                        <li><strong>Entspannung:</strong> Der Schließmuskel muss durch tiefe Atmung komplett entspannt werden.</li>
+                        <li><strong>Lokalisierung:</strong> Die Prostata (Walnussgröße) liegt etwa 5 bis 7 cm tief im Rektum an der vorderen Wand (Richtung Bauchnabel/Penisbasis).</li>
+                        <li><strong>Die "Come-Hither" Technik:</strong> Nach dem Eindringen wird der Finger oder das gebogene Toy (z.B. Aneros) sanft wie bei einer "Komm-her"-Geste nach oben und vorne gedrückt.</li>
+                        <li><strong>Gleitmittel-Management:</strong> Da der Analkanal keine Eigenschmierung produziert, ist die Verwendung von hochwertigem, viskosem Silikongel oder J-Lube zwingend erforderlich.</li>
+                        <li><strong>Mentale Entspannung:</strong> Schmerz entsteht ausschließlich durch Verkrampfung des Sphinkters (Schließmuskels). Box-Breathing und bewusstes "Nach-außen-Drücken" (als würde man zur Toilette gehen) öffnet den Kanal widerstandsfrei.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="diy" class="panel">
+            <h1>DIY-Hardware</h1>
+            <p class="subtitle">Einstieg in den Bau eigener, funktionaler Masturbatoren (Entry-Level).</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Die "Pringles-Matrix" (Classic Build)</h2>
+                    <p>Das Standardmodell für schnelles, effizientes Engineering aus Haushaltsgegenständen, wenn kommerzielle Hardware nicht verfügbar ist.</p>
+                    <ul>
+                        <li><strong>Das Exoskelett:</strong> Eine gereinigte Pringles-Dose oder ein Stück 75mm PVC-Rohr. Bietet den nötigen Gegendruck und ermöglicht die freihändige Befestigung (Mounting).</li>
+                        <li><strong>Die Polsterung:</strong> Zwei weiche, handelsübliche Spülschwämme (ohne raue Seite) oder ein eng aufgerolltes Mikrofasertuch. Dies simuliert den muskulären Widerstand.</li>
+                        <li><strong>Das Interface:</strong> Ein Latexhandschuh (Nitril für Allergiker) oder ein Kondom wird mittig zwischen die Polster geschoben. Der offene Rand wird über die Dose gestülpt und mit einem Gummiband abgedichtet.</li>
+                        <li><strong>Reinigung:</strong> Das Interface wird nach jeder Nutzung entsorgt. Die Schwämme bleiben sauber und trocken im Gehäuse.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="tech" class="panel">
+            <h1>Lovense & Tech</h1>
+            <p class="subtitle">High-End Teledildonics und interaktive Hardware-Systeme.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Ecosystem & Integration</h2>
+                    <p>Die Synchronisation von Hardware mit digitalen Inhalten (Pornografie, VR, Spiele) hebt die Stimulation auf ein neues Level, da der visuelle und haptische Reiz in Echtzeit gekoppelt wird.</p>
+                    <ul>
+                        <li><strong>Lovense Max:</strong> Der Industriestandard. Ein Masturbator mit eingebauter Luftpumpe (für variablen Saugdruck) und starkem Vibrationsmotor, steuerbar via Bluetooth (BLE).</li>
+                        <li><strong>Lovense Edge:</strong> Verstellbarer Prostata-Massager, dessen Arme sich der individuellen Anatomie anpassen lassen, um exakt den P-Punkt zu treffen.</li>
+                        <li><strong>Software-Bridge (Intiface Desktop):</strong> Eine Middleware (basierend auf dem Buttplug.io Protokoll), die es ermöglicht, Toys mit lokaler Software (wie ScriptPlayer) zu verbinden, um Funscripts synchron zu 2D- oder VR-Videos abzuspielen.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="maker" class="panel">
+            <h1>Maker-Protokoll</h1>
+            <p class="subtitle">Open-Source Entwicklung eigener interaktiver Hardware (Advanced Tech).</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>IoT & Embedded Systems für Adults</h2>
+                    <p>Anstatt hunderte Euros für kommerzielle Toys auszugeben, lässt sich Teledildonic-Hardware mit Standard-Mikrocontrollern selbst programmieren und bauen.</p>
+                    <div class="image-placeholder">[UI: Schaltplan eines ESP32, verbunden mit einem L298N Motor Driver und 5V Vibrationsmotoren]</div>
+                    <ul>
+                        <li><strong>Microcontroller (ESP32):</strong> Das Gehirn des Projekts. Bietet natives Bluetooth Low Energy (BLE) und WLAN für die Kommunikation mit dem PC oder Smartphone.</li>
+                        <li><strong>Motor-Steuerung (PWM):</strong> Vibrationsmotoren (3V - 5V) werden nicht nur ein/ausgeschaltet, sondern über Pulsweitenmodulation (PWM) stufenlos in ihrer Intensität geregelt, um subtile Funscripts exakt abzubilden.</li>
+                        <li><strong>Firmware:</strong> Open-Source Libraries wie "ESP32-Buttplug" ermöglichen es dem Chip, sich gegenüber dem PC als offizielles, kompatibles Gerät (wie ein Lovense-Toy) auszugeben.</li>
+                        <li><strong>Gehäuse:</strong> Konstruktion der Chassis im CAD-Programm (Fusion360) und Fertigung aus hautfreundlichem TPU (flexibles Filament) via 3D-Druck.</li>
                     </ul>
                 </div>
             </div>
@@ -157,14 +228,17 @@
 
         <div id="premium-diy" class="panel">
             <h1>Master-Hacks (Premium DIY)</h1>
-            <p class="subtitle">Fortgeschrittene Hardware auf Haushaltsbasis.</p>
+            <p class="subtitle">Fortgeschrittene Hardware-Konstruktionen (Thermik & Fluid-Dynamik).</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Thermos-Matrix-System</h2>
-                    <div class="image-placeholder">[Image showing the internal assembly of a DIY masturbator with gel pads and a sleeve]</div>
+                    <h2>Das Thermos-Matrix-System</h2>
+                    <p>Dieses Setup übertrifft Schwamm-Konstruktionen, indem es das Gewicht, die Dichte und die Wärmeleitfähigkeit von echtem Gewebe perfekt simuliert.</p>
+                    <div class="image-placeholder">[UI: Explosionszeichnung: Thermoskanne, Oobleck-Beutel, Vakuum-Port, Latex-Interface]</div>
                     <ul>
-                        <li><strong>Matrix:</strong> Warme Oobleck-Mischung in luftleeren Beuteln simuliert Gewebehaptik.</li>
-                        <li><strong>Isolation:</strong> Edelstahlgehäuse speichert Körpertemperatur über 2 Stunden.</li>
+                        <li><strong>Matrix (Oobleck):</strong> Eine Mischung aus Speisestärke und warmem Wasser (ca. 40°C) wird in zwei robuste Gefrierbeutel gefüllt. Diese nicht-newtonsche Flüssigkeit passt sich sanftem Druck weich an, härtet aber bei schnellen Stößen aus – exakt wie Muskel- und Fettgewebe.</li>
+                        <li><strong>Thermische Isolation:</strong> Die Platzierung der Beutel in einer doppelwandigen Edelstahl-Thermoskanne hält das System für über 2 Stunden auf realistischer Körpertemperatur.</li>
+                        <li><strong>Hydraulik-Druck (Alternative):</strong> Nutzung von wassergefüllten Handschuhen statt Oobleck. Da Wasser inkompressibel ist, erzeugt es einen extrem dichten, gleichmäßigen Umschließungsdruck.</li>
+                        <li><strong>Suction-Control (Vakuum-Mod):</strong> Ein 5mm Loch im Boden der Kanne ermöglicht es, durch Auflegen oder Abheben des Daumens einen aktiven Sog (Vakuum) im Inneren zu steuern.</li>
                     </ul>
                 </div>
             </div>
@@ -172,20 +246,21 @@
 
         <div id="field-ops" class="panel">
             <h1>Field Ops & Networking</h1>
-            <p class="subtitle">Diskretes Protokoll für reale Begegnungen.</p>
+            <p class="subtitle">Diskretes Protokoll für reale Begegnungen ohne lokale Bindung.</p>
             <div class="grid">
                 <div class="card">
                     <h2>Die "Newbie" Strategie</h2>
-                    <p>Fokus auf absolute Ehrlichkeit bezüglich Unerfahrenheit, um Druck zu eliminieren.</p>
+                    <p>Wer erste Erfahrungen abseits der gewohnten Hetero-Struktur sucht, scheitert oft an der toxischen "Fleischmarkt"-Dynamik von Apps wie Grindr. Der Schlüssel ist radikale Ehrlichkeit bezüglich der eigenen Unerfahrenheit. Dies filtert aggressive User sofort heraus und zieht Gleichgesinnte an.</p>
                     <ul>
-                        <li><strong>Logistik:</strong> Outdoor-Treffen an ruhigen Plätzen (Waldränder, abgelegene Parkplätze) gewährleisten Diskretion.</li>
-                        <li><strong>Kein Hosting:</strong> Ausschluss von Hausbesuchen zur Wahrung der Privatsphäre.</li>
+                        <li><strong>Logistik & Sicherheit:</strong> Outdoor-Treffen (Waldränder, verlassene Industrie-Parkplätze) gewährleisten maximale Anonymität. Kein Hosting schließt Hausbesuche aus und schützt den privaten Lebensraum.</li>
+                        <li><strong>Offline Hubs:</strong> Besuche lokaler, organisierter Community-Treffs (z.B. LSVD Checkpoints, Stammtische). Die Face-to-Face Begegnung beim Kaffee eliminiert den sexuellen Erwartungsdruck komplett.</li>
                     </ul>
                 </div>
 
                 <div class="card">
-                    <h2>Das Field-Ops Inserat (Perfektioniert)</h2>
-                    <div class="code-block">Titel: Neuland entdecken: Zwei Anfänger, null Druck (aus deiner Region)
+                    <h2>Das Field-Ops Inserat (Perfektioniert für Markt.de)</h2>
+                    <p>Eine hochkonvertierende Kopiervorlage für Text-Inserate (Kategorie: Erotik -> Trans-Kontakte oder Er sucht Ihn). Es strahlt Seriosität aus und triggert gezielt verdeckte Neugier.</p>
+                    <div class="code-block">Titel: Neuland entdecken: Zwei Anfänger, null Druck (aus der Region)
 
 Hallo an alle, die das hier lesen, ich habe den typischen App-Wahnsinn satt. Ich suche keinen schnellen „Fleischmarkt“, sondern echte, vorsichtige Neugier. Ich komme aus der näheren Umgebung und möchte meine neugierige Seite entdecken – respektvoll, ehrlich und absolut diskret.
 
@@ -206,14 +281,16 @@ Ich freue mich auf eine Nachricht mit Niveau.</div>
 
         <div id="neuro" class="panel">
             <h1>Neuro-Sync (Goon-State)</h1>
-            <p class="subtitle">Psychologische Techniken zur Trance-Induktion.</p>
+            <p class="subtitle">Psychologische Techniken zur Induktion tiefer Trance-Zustände.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Dopamin-Overload</h2>
-                    <div class="image-placeholder"></div>
+                    <h2>Dopamin-Overload & Hypnosis</h2>
+                    <p>Gooning ist nicht primär eine physische, sondern eine chemische Aktivität. Es geht darum, den präfrontalen Kortex (zuständig für Logik und Ratio) zu überlasten, um das Gehirn in einen reinen Instinkt- und Belohnungsmodus zu zwingen.</p>
+                    <div class="image-placeholder">[UI: Visualisierung neuronaler Pfade: Überflutung des synaptischen Spalts mit Dopamin ohne Refraktärzeit]</div>
                     <ul>
-                        <li><strong>Sensory Overload:</strong> Kombination aus schnellen visuellen Reizen und Binaural Beats (Alpha-Wellen) zur Abschaltung des präfrontalen Kortex.</li>
-                        <li><strong>Tunnelblick:</strong> Durch langes Edging flutet das Gehirn den synaptischen Spalt mit Dopamin, ohne ihn zu entladen. Dies erzeugt den "Goon-State".</li>
+                        <li><strong>Sensory Overload:</strong> Der gezielte Einsatz von stroboskopischen Bildschnitten (Flash-Edits) kombiniert mit tiefen, repetitiven Audio-Mustern überlastet die visuelle Verarbeitung und zwingt den Verstand in den "Tunnelblick".</li>
+                        <li><strong>Binaural Beats:</strong> Nutzung von Kopfhörern, um leicht versetzte Frequenzen in jedes Ohr zu spielen (z.B. 200 Hz links, 208 Hz rechts). Das Gehirn synchronisiert sich auf die Differenz (8 Hz, Alpha-Welle), was einen hypnotischen, entspannten Wachzustand auslöst.</li>
+                        <li><strong>Atem-Synchronisation:</strong> Die Atmung wird an den visuellen Rhythmus gekoppelt. Tiefes, langsames Atmen signalisiert dem Körper Sicherheit, wodurch extreme Erregungslevel über Stunden gehalten werden können, ohne das System in den Stress-Modus kippen zu lassen.</li>
                     </ul>
                 </div>
             </div>
@@ -221,15 +298,17 @@ Ich freue mich auf eine Nachricht mit Niveau.</div>
 
         <div id="recovery" class="panel">
             <h1>Recovery & Aftercare</h1>
-            <p class="subtitle">Restoration des Zentralnervensystems nach der Session.</p>
+            <p class="subtitle">Physische und chemische Restoration des Zentralnervensystems.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Neuro-Restoration</h2>
-                    <div class="image-placeholder">[Image showing the chemical structure of Serotonin and its synthesis]</div>
+                    <h2>Das Post-Session Protokoll</h2>
+                    <p>Lange Sessions entleeren die Neurotransmitter-Speicher restlos. Der darauffolgende Abfall ("Post-Nut Clarity" oder "Dopamin-Crash") äußert sich oft in Erschöpfung, Reuegefühl oder mentaler Distanz.</p>
+                    <div class="image-placeholder">[UI: Infografik: Die Neurotransmitter-Achse (Dopamin, Serotonin, Prolaktin) vor und nach dem Release]</div>
                     <ul>
-                        <li><strong>Dopamin-Reset:</strong> Einnahme von Magnesium und Vitamin B-Komplex zur Beruhigung der Nerven.</li>
-                        <li><strong>Hydration:</strong> Ausgleich des massiven Flüssigkeitsverlusts durch Elektrolyte.</li>
-                        <li><strong>Mental Focus:</strong> Kurze Meditation oder kalte Dusche, um die "Post-Nut-Clarity" zu kanalisieren und wieder in den Alltagsmodus zu wechseln.</li>
+                        <li><strong>Der Chemische Reset:</strong> Eine Kombination aus L-Tyrosin (Dopamin-Vorstufe), 5-HTP (Serotonin-Vorstufe) und hochdosiertem Magnesium beruhigt das Nervensystem und füllt die Speicher auf, um Depressionen nach der Session zu verhindern.</li>
+                        <li><strong>Elektrolyt-Flutung:</strong> Da der Körper über Stunden Schweiß und Sekret produziert, reicht reines Wasser nicht aus. Natrium und Kalium müssen durch Elektrolyt-Drinks zugeführt werden, um Krämpfe und Kopfschmerzen zu vermeiden.</li>
+                        <li><strong>Skin-Care & Hygiene:</strong> Langanhaltende Reibung strapaziert die Epidermis. Der Einsatz von Panthenol-Cremes (Dexpanthenol) beschleunigt die Zellerneuerung und lindert mechanische Reizungen.</li>
+                        <li><strong>Mental Grounding:</strong> Ein Wechsel der Umgebung und eine kalte Dusche triggern den menschlichen "Mammalian Dive Reflex". Dies bricht den neuronalen Loop hart ab und ermöglicht eine klare Rückkehr in den Alltags- (und Beziehungs-) Modus.</li>
                     </ul>
                 </div>
             </div>
