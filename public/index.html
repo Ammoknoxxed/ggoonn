@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocol Base // V5.2 - Public Encyclopedia</title>
+    <title>Protocol Base // V7.1 - Maximum Discretion</title>
     <style>
         :root {
             --bg-dark: #0a0a0e;
@@ -17,7 +17,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; line-height: 1.6; }
         
-        .sidebar { width: 300px; background: var(--surface); padding: 2rem 1.5rem; border-right: 1px solid #2a2a35; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+        .sidebar { width: 300px; background: var(--surface); padding: 2rem 1.5rem; border-right: 1px solid #2a2a35; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; overflow-y: auto; }
         .logo { font-size: 1.3rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid #2a2a35; padding-bottom: 1rem; }
         .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 12px 16px; text-align: left; font-size: 0.95rem; cursor: pointer; border-radius: 8px; transition: all 0.2s; font-weight: 500; }
         .nav-btn:hover { background: var(--surface-light); color: var(--text-main); }
@@ -41,6 +41,8 @@
 
         .warning-box { background: rgba(255, 68, 68, 0.1); border: 1px solid var(--accent-danger); padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; }
         .warning-box h4 { color: var(--accent-danger); margin-bottom: 0.5rem; text-transform: uppercase; }
+        
+        .code-block { background: #0a0a0e; padding: 1.5rem; border-radius: 8px; border: 1px solid #3a3a45; font-family: monospace; color: #a8b2d1; white-space: pre-wrap; font-size: 0.9rem; margin-bottom: 1rem; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -57,148 +59,100 @@
         <button class="nav-btn" onclick="switchTab('diy')">6. DIY-Hardware</button>
         <button class="nav-btn" onclick="switchTab('tech')">7. Lovense & Tech</button>
         <button class="nav-btn" onclick="switchTab('maker')">8. Maker-Protokoll</button>
+        <button class="nav-btn" onclick="switchTab('premium-diy')">9. Master-Hacks (Premium)</button>
+        <button class="nav-btn" onclick="switchTab('field-ops')">10. Field Ops (Networking)</button>
     </div>
 
     <div class="content">
         <div id="size" class="panel active">
             <h1>Penis-Optimierung</h1>
-            <p class="subtitle">Wissenschaftliche Analyse zu Länge, Dicke und anatomischen Grenzen.</p>
+            <p class="subtitle">Analyse zu anatomischen Grenzen und Optimierung.</p>
             <div class="grid">
                 <div class="card">
                     <h2>Anatomische Realität</h2>
-                    <p>Die Penisgröße ist primär genetisch festgelegt. Es gibt keine medizinisch belegten Wundermittel, die eine permanente Vergrößerung bewirken.</p>
-                    <h3>Methoden und Fakten</h3>
                     <ul>
-                        <li><strong>Pillen & Supplemente:</strong> Solche Produkte sind medizinisch wirkungslos und zumeist Betrug.</li>
-                        <li><strong>Vakuumpumpen:</strong> Erzeugen eine temporäre Schwellung durch Blutstau im Gewebe. Bei Missbrauch drohen Gefäßschäden und Erektionsstörungen.</li>
-                        <li><strong>Optische Optimierung:</strong> Gewichtsverlust reduziert das Fettpolster am Schambein (Fupa), wodurch mehr vom Penisschaft sichtbar wird. Eine Rasur verstärkt diesen Effekt.</li>
+                        <li><strong>Vakuumpumpen:</strong> Temporäre Schwellung, Risiko bei Missbrauch.</li>
+                        <li><strong>Optische Optimierung:</strong> Reduktion des Schambein-Fettpolsters und Körperpflege verstärken die Sichtbarkeit des Schafts.</li>
                     </ul>
-                    <div class="warning-box">
-                        <h4>Chirurgische Risiken</h4>
-                        <p>Eingriffe wie Ligamentolyse oder Eigenfettinjektionen sind teuer, riskant und können den Erektionswinkel sowie die Stabilität dauerhaft beeinträchtigen.</p>
-                    </div>
                 </div>
             </div>
         </div>
-
+        
         <div id="stamina" class="panel">
             <h1>Ausdauer & Delay</h1>
             <p class="subtitle">Neuro-muskuläre Techniken für maximale Kontrolle.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Training des Ejakulationsreflexes</h2>
-                    <p>Die Kontrolle über den Ejakulationszeitpunkt lässt sich durch gezielte Übungen trainieren.</p>
-                    <h3>Methodik</h3>
+                    <h2>Kontroll-Protokoll</h2>
                     <ul>
-                        <li><strong>Start-Stopp-Technik:</strong> Stimulation bis zum "Point of no Return", gefolgt von einer Pause bis zum Abklingen der Erregung. Mehrfache Wiederholung pro Session.</li>
-                        <li><strong>Beckenbodentraining (Kegel):</strong> Täglich kontrolliertes Anspannen und Loslassen der PC-Muskulatur stärkt die Kontrolle über den Ejakulationszeitpunkt.</li>
-                        <li><strong>Mechanische Hilfen:</strong> Dickere Kondome oder Delay-Sprays (Lidocain) verringern die Sensibilität.</li>
+                        <li><strong>Reverse Kegel:</strong> Aktives Entspannen des Beckenbodens unterbricht den Ejakulationsreflex.</li>
+                        <li><strong>Box Breathing:</strong> Taktische Atmung zur Senkung des Herzschlags und Stabilisierung des Erregungslevels.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div id="ejaculate" class="panel">
-            <h1>Volumen-Maximierung</h1>
-            <p class="subtitle">Chemische und biologische Protokolle für den Output.</p>
+        <div id="ejaculate" class="panel">...</div>
+        <div id="autofellatio" class="panel">...</div>
+        <div id="prostate" class="panel">...</div>
+        <div id="diy" class="panel">...</div>
+        <div id="tech" class="panel">...</div>
+        <div id="maker" class="panel">...</div>
+
+        <div id="premium-diy" class="panel">
+            <h1>Master-Hacks (Premium DIY)</h1>
+            <p class="subtitle">Fortgeschrittene Hardware auf Haushaltsbasis.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Drüsensekretion</h2>
-                    <p>Das Volumen wird primär durch die Prostata und die Bläschendrüsen bestimmt.</p>
+                    <h2>Thermos-Matrix-System</h2>
                     <ul>
-                        <li><strong>Abstinenz:</strong> Ein Intervall von 3 bis 5 Tagen füllt die Reservoirs optimal auf.</li>
-                        <li><strong>Hydration:</strong> Da Sperma überwiegend aus Wasser besteht, ist eine hohe Flüssigkeitszufuhr essenziell.</li>
-                        <li><strong>Edging:</strong> Lange Erregungsphasen regen die Drüsen an, mehr Flüssigkeit für den finalen Höhepunkt zu produzieren.</li>
-                        <li><strong>Ernährung:</strong> Zink, L-Arginin und Lecithin können die Produktion geringfügig unterstützen.</li>
+                        <li><strong>Matrix:</strong> Warme Oobleck-Mischung in luftleeren Beuteln simuliert Gewebehaptik.</li>
+                        <li><strong>Isolation:</strong> Edelstahlgehäuse speichert Körpertemperatur über 2 Stunden.</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <div id="autofellatio" class="panel">
-            <h1>Autofellatio-Guide</h1>
-            <p class="subtitle">Extreme Flexibilität und mechanische Voraussetzungen.</p>
+        <div id="field-ops" class="panel">
+            <h1>Field Ops & Networking</h1>
+            <p class="subtitle">Diskretes Protokoll für reale Begegnungen ohne lokale Bindung.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Physische Anforderungen</h2>
-                    <p>Autofellatio erfordert eine unnatürliche Flexibilität der Wirbelsäule und der Beinmuskulatur.</p>
+                    <h2>Die "Newbie" Strategie</h2>
+                    <p>Fokus auf absolute Ehrlichkeit bezüglich Unerfahrenheit, um Druck zu eliminieren.</p>
                     <ul>
-                        <li><strong>Voraussetzung:</strong> Monate- bis jahrelanges Dehntraining (Yoga/Pilates) für den unteren Rücken und Nacken.</li>
-                        <li><strong>Position:</strong> Rückenlage, Beine hinter den Kopf führen und das Becken zum Gesicht anheben.</li>
+                        <li><strong>Logistik:</strong> Outdoor-Treffen an ruhigen Plätzen gewährleisten Diskretion und Unabhängigkeit.</li>
+                        <li><strong>Kein Hosting:</strong> Ausschluss von Hausbesuchen zur Wahrung der Privatsphäre.</li>
                     </ul>
-                    <div class="warning-box">
-                        <h4>Verletzungsgefahr</h4>
-                        <p>Es besteht ein massives Risiko für schwere Rücken-, Bandscheiben- oder Nackenverletzungen. Bei Schmerz sofort abbrechen.</p>
-                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>Das Field-Ops Inserat (Diskret)</h2>
+                    <div class="code-block">Titel: Neuland entdecken: Zwei Anfänger, null Druck (aus deiner Region)
+
+Hallo an alle, die das hier lesen,
+ich habe den typischen App-Wahnsinn satt. Ich suche keinen schnellen „Fleischmarkt“, sondern echte, vorsichtige Neugier. Ich komme aus der näheren Umgebung und möchte meine neugierige Seite entdecken – respektvoll, ehrlich und absolut diskret.
+
+Zu mir:
+Ich bin ein absoluter Anfänger (Newbie) ohne praktische Erfahrung. Ich stehe mit beiden Beinen fest im Leben und Diskretion hat für mich oberste Priorität.
+
+Wen ich suche:
+An die Männer: Du bist erfolgreich in deinem Alltag verankert, aber da ist diese eine Seite. Ich suche keinen „Profi“. Mein erster Wunsch wäre es, ihn mal in der Hand zu halten, die Wärme zu spüren und ihn vor meinen Augen spritzen zu lassen. Wenn die Chemie stimmt, bin ich auch offen fürs Blasen. Ohne Leistungsdruck.
+
+An die Trans-Frauen: Ich finde die Kombination aus weiblicher Ausstrahlung und der speziellen Ästhetik faszinierend. Auch hier reizt mich die Vorstellung, dich nah zu spüren und dich zu verwöhnen.
+
+Wichtig: Alter und Körperbau sind zweitrangig. Chemie und Vibe entscheiden.
+
+Der Rahmen:
+- Absolute Diskretion: Alles bleibt unter uns.
+- Outdoor: Da ich nicht besuchbar bin, bevorzuge ich diskrete Treffen im Freien.
+- Kein Zeitdruck: Tempo bestimmen wir gemeinsam.
+
+Ich freue mich auf eine Nachricht mit Niveau.</div>
                 </div>
             </div>
         </div>
 
-        <div id="prostate" class="panel">
-            <h1>Prostata-Expertise</h1>
-            <p class="subtitle">Der Weg zum tiefen Anal-Orgasmus.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>Punktgenaue Stimulation</h2>
-                    <p>Die Prostata liegt ca. 5-7 cm tief an der Vorderwand des Rektums.</p>
-                    <ol>
-                        <li><strong>Vorbereitung:</strong> Entspannung und anale Spülung (Enema) für Hygiene und Komfort.</li>
-                        <li><strong>Gleitmittel:</strong> Da keine Eigenfeuchtigkeit vorhanden ist, muss massiv Gleitgel verwendet werden.</li>
-                        <li><strong>Stimulation:</strong> Sanfte Massage der Wölbung Richtung Bauch mittels Finger oder gebogenem Toy.</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-
-        <div id="diy" class="panel">
-            <h1>DIY-Hardware</h1>
-            <p class="subtitle">Konstruktion befestigbarer Masturbatoren.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>Bauplan: Pringles-Matrix</h2>
-                    <p>Eine funktionale, befestigbare Lösung aus Haushaltsmitteln.</p>
-                    <ul>
-                        <li><strong>Gehäuse:</strong> Pringles-Dose oder PVC-Rohr zur Stabilisierung.</li>
-                        <li><strong>Innenleben:</strong> Zwei Schwämme oder ein gerolltes Handtuch erzeugen den notwendigen Druck.</li>
-                        <li><strong>Interface:</strong> Ein fixiertes Kondom oder ein Handschuh dient als Kontaktfläche.</li>
-                        <li><strong>Befestigung:</strong> Die Hardware kann mittels Spanngurten oder Panzertape an stabilen Objekten fixiert werden.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="tech" class="panel">
-            <h1>Lovense & Tech</h1>
-            <p class="subtitle">Interaktive Hardware-Systeme für Männer.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>Smarte Teledildonics</h2>
-                    <p>Lovense bietet App-gesteuerte Toys, die synchron zu Inhalten reagieren.</p>
-                    <ul>
-                        <li><strong>Lovense Max:</strong> Einstellbarer Masturbator mit Vibration und Luftpumpe.</li>
-                        <li><strong>Lovense Edge:</strong> High-End-Prostatamassager mit verstellbarem Winkel.</li>
-                        <li><strong>Lovense Gush:</strong> Spezialisierter Penisring für Erektionsstabilität und Vibration.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div id="maker" class="panel">
-            <h1>Maker-Protokoll</h1>
-            <p class="subtitle">Entwicklung eigener interaktiver Hardware.</p>
-            <div class="grid">
-                <div class="card">
-                    <h2>Hardware & Software Architektur</h2>
-                    <p>Eigene interaktive Systeme lassen sich auf Open-Source-Basis realisieren.</p>
-                    <ul>
-                        <li><strong>Controller:</strong> ESP32 oder Arduino mit Bluetooth (BLE).</li>
-                        <li><strong>Aktoren:</strong> 3V-5V Vibrationsmotoren oder Servos via PWM-Steuerung.</li>
-                        <li><strong>Software:</strong> Integration über Buttplug.io (Intiface) ermöglicht die Synchronisation mit VR-Inhalten und Games.</li>
-                        <li><strong>Gehäuse:</strong> 3D-Druck mit körperverträglichem Silikon-Überzug.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script>
