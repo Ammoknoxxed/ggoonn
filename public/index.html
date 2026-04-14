@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocol Base // V9.1 - The Complete Apex Collection</title>
+    <title>Protocol Base // V10.0 - The Master Edition</title>
     <style>
         :root {
-            --bg-dark: #07070a;
-            --surface: #111116;
-            --surface-light: #1c1c24;
-            --accent: #ffb703; /* Premium Gold/Amber Accent */
+            --bg-dark: #050507;
+            --surface: #0d0d12;
+            --surface-light: #181820;
+            --accent: #ffb703; /* Premium Apex Gold */
             --accent-danger: #e63946;
             --text-main: #f1faee;
             --text-muted: #a8dadc;
@@ -17,8 +17,13 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; line-height: 1.7; }
         
-        .sidebar { width: 340px; background: var(--surface); padding: 2rem 1.5rem; border-right: 1px solid #2a2a35; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; overflow-y: auto; }
-        .logo { font-size: 1.4rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid #2a2a35; padding-bottom: 1rem; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--surface-light); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        .sidebar { width: 340px; background: var(--surface); padding: 2rem 1.5rem; border-right: 1px solid #1f1f2e; display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; overflow-y: auto; }
+        .logo { font-size: 1.4rem; font-weight: 900; color: var(--accent); margin-bottom: 2rem; letter-spacing: 2px; text-transform: uppercase; border-bottom: 2px solid #1f1f2e; padding-bottom: 1rem; }
         .nav-btn { background: transparent; color: var(--text-muted); border: none; padding: 14px 16px; text-align: left; font-size: 0.95rem; cursor: pointer; border-radius: 8px; transition: all 0.2s; font-weight: 600; }
         .nav-btn:hover { background: var(--surface-light); color: var(--text-main); transform: translateX(5px); }
         .nav-btn.active { background: rgba(255, 183, 3, 0.1); color: var(--accent); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; }
@@ -27,11 +32,11 @@
         .panel { display: none; animation: fadeIn 0.4s ease; }
         .panel.active { display: block; }
         
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; font-weight: 800; color: #fff; letter-spacing: -1px; }
-        .subtitle { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.2rem; border-bottom: 1px solid #2a2a35; padding-bottom: 1.5rem; }
+        h1 { font-size: 3.2rem; margin-bottom: 0.5rem; font-weight: 800; color: #fff; letter-spacing: -1px; }
+        .subtitle { color: var(--text-muted); margin-bottom: 3rem; font-size: 1.2rem; border-bottom: 1px solid #1f1f2e; padding-bottom: 1.5rem; }
         
         .grid { display: grid; grid-template-columns: 1fr; gap: 3rem; max-width: 1100px; }
-        .card { background: var(--surface); padding: 3rem; border-radius: 16px; border: 1px solid #2a2a35; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card { background: var(--surface); padding: 3rem; border-radius: 16px; border: 1px solid #1f1f2e; box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
         .card h2 { color: var(--accent); margin-bottom: 1.5rem; font-size: 1.8rem; border-left: 4px solid var(--accent); padding-left: 15px; }
         .card h3 { color: var(--text-main); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; }
         .card p { color: var(--text-muted); margin-bottom: 1.5rem; text-align: justify; font-size: 1.05rem; }
@@ -62,7 +67,7 @@
         .warning-box { background: rgba(230, 57, 70, 0.05); border: 1px solid var(--accent-danger); padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
         .warning-box h4 { color: var(--accent-danger); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
         
-        .code-block { background: #000; padding: 1.5rem; border-radius: 8px; border: 1px solid #3a3a45; font-family: monospace; color: #a8b2d1; white-space: pre-wrap; font-size: 0.95rem; margin-bottom: 1rem; overflow-x: auto; border-left: 4px solid var(--text-muted); }
+        .code-block { background: #000; padding: 1.5rem; border-radius: 8px; border: 1px solid #1f1f2e; font-family: monospace; color: #a8b2d1; white-space: pre-wrap; font-size: 0.95rem; margin-bottom: 1rem; overflow-x: auto; border-left: 4px solid var(--text-muted); }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
     </style>
@@ -71,34 +76,35 @@
 
     <div class="sidebar">
         <div class="logo">Protocol_Base</div>
-        <button class="nav-btn active" onclick="switchTab('holy-grail')">1. The Holy Grail Stack (100% Vol)</button>
-        <button class="nav-btn" onclick="switchTab('stamina-override')">2. Neural Override (0% Refractory)</button>
-        <button class="nav-btn" onclick="switchTab('premium-household')">3. Apex Household DIY</button>
-        <button class="nav-btn" onclick="switchTab('ecoflex-flesh')">4. EcoFlex Flesh Engineering</button>
-        <button class="nav-btn" onclick="switchTab('autofellatio-apex')">5. Biomechanics (Autofellatio)</button>
-        <button class="nav-btn" onclick="switchTab('vr-sync')">6. Absolute VR & Teledildonics</button>
-        <button class="nav-btn" onclick="switchTab('prostate-mapping')">7. Prostate Mapping & TENS</button>
-        <button class="nav-btn" onclick="switchTab('field-ops')">8. Field Ops (Networking)</button>
+        <button class="nav-btn active" onclick="switchTab('holy-grail')">1. The Holy Grail Stack</button>
+        <button class="nav-btn" onclick="switchTab('stamina-override')">2. Neural Override & Edging</button>
+        <button class="nav-btn" onclick="switchTab('manual-mechanics')">3. Manual Mechanics (Gooning)</button>
+        <button class="nav-btn" onclick="switchTab('oral-protocols')">4. Oral Protocols (Fellatio)</button>
+        <button class="nav-btn" onclick="switchTab('premium-household')">5. Apex Household DIY</button>
+        <button class="nav-btn" onclick="switchTab('ecoflex-flesh')">6. EcoFlex Flesh Engineering</button>
+        <button class="nav-btn" onclick="switchTab('autofellatio-apex')">7. Biomechanics (Autofellatio)</button>
+        <button class="nav-btn" onclick="switchTab('vr-sync')">8. Absolute VR Sync</button>
+        <button class="nav-btn" onclick="switchTab('prostate-mapping')">9. Prostate Mapping & TENS</button>
+        <button class="nav-btn" onclick="switchTab('field-ops')">10. Field Ops (Networking)</button>
     </div>
 
     <div class="content">
         
         <div id="holy-grail" class="panel active">
             <h1>The Holy Grail Stack</h1>
-            <p class="subtitle">Das einzige wissenschaftlich validierte Protokoll zur maximalen Steigerung von Volumen und Viskosität.</p>
+            <p class="subtitle">Das 100% validierte Protokoll zur maximalen Steigerung von Volumen und Viskosität.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Das 100% Efficacy Protocol</h2>
-                    <p>Vergiss Zink-Mono-Präparate oder Placebos. Ejakulat besteht zu 95% aus Prostata- und Bläschendrüsensekret. Dieses Protokoll zwingt die Drüsen auf maximale Produktion.</p>
-                    
+                    <h2>Das biochemische Maximum</h2>
+                    <p>Ejakulat besteht zu 95% aus Sekret der Bläschendrüse und Prostata. Dieses Setup zwingt die Drüsen auf Überproduktion für den perfekten visuellen Output.</p>
                     <div class="highlight-box">
-                        <h3>Der tägliche Stack (Morgens & Abends)</h3>
+                        <h3>Der Tägliche Stack (12h Rhythmus)</h3>
                         <ul>
-                            <li><strong>Sonnenblumen-Lecithin (1200mg - 2400mg):</strong> Der absolute Gamechanger. Lecithin ist ein Emulgator, der die Menge und die Viskosität des Sekrets massiv erhöht.</li>
-                            <li><strong>Pygeum Africanum (100mg):</strong> Erhöht die Produktion der präseminalen Flüssigkeit (Lusttropfen). Führt zu einem fast konstanten "Leaken" bei Erregung.</li>
-                            <li><strong>L-Arginin + L-Citrullin (3000mg):</strong> Stickstoffmonoxid-Booster. Erweitert die Blutgefäße auf das absolute Maximum. Führt zu extrem harten und ausdauernden Erektionen.</li>
-                            <li><strong>Zink Picolinat (50mg):</strong> Für die Spermien-Dichte und die reinweiße Färbung.</li>
-                            <li><strong>Hydration:</strong> Ohne Wasserbasis funktioniert der Stack nicht. Mindestens 3,5 Liter Wasser am Tag sind Pflicht.</li>
+                            <li><strong>Sonnenblumen-Lecithin (1200-2400mg):</strong> Der primäre Emulgator. Erhöht die "seilartige" Viskosität und Menge massiv nach 72 Stunden.</li>
+                            <li><strong>Pygeum Africanum (100mg):</strong> Übersteuert die präseminale Produktion. Führt zu extremem "Leaking" während der Gooning-Session.</li>
+                            <li><strong>L-Citrullin Malat (3000mg):</strong> Der stärkste Vasodilatator. Öffnet die Gefäße für pralle, ausdauernde Härte.</li>
+                            <li><strong>Zink Picolinat (50mg):</strong> Kondensiert die Spermien-Dichte für die leuchtend weiße Färbung.</li>
+                            <li><strong>Hydration Base:</strong> 3-4 Liter Wasser täglich. Ohne Wasserbasis bleibt der gesamte Stack wirkungslos.</li>
                         </ul>
                     </div>
                 </div>
@@ -106,24 +112,76 @@
         </div>
         
         <div id="stamina-override" class="panel">
-            <h1>Neural Override & 0% Refractory</h1>
-            <p class="subtitle">Ausschaltung der Refraktärzeit und absolute Kontrolle über den Ejakulationsreflex.</p>
+            <h1>Neural Override & Edging</h1>
+            <p class="subtitle">Ausschaltung der Refraktärzeit und absolute Kontrolle über den Point of No Return.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Der Prolaktin-Hack (Multi-Orgasmus)</h2>
-                    <p>Der Grund für den Verlust der Erektion nach dem Orgasmus ist das Hormon <strong>Prolaktin</strong>. Blockieren wir Prolaktin, verschwindet die Refraktärzeit (Post-Nut-Clarity).</p>
+                    <h2>Der Prolaktin-Hack (0% Post-Nut-Clarity)</h2>
+                    <p>Der Erektionsverlust nach dem Release wird durch Prolaktin gesteuert. Wird dieses blockiert, existiert keine Refraktärzeit.</p>
                     <ul>
-                        <li><strong>P5P (Vitamin B6 aktiv) - 100mg/Tag:</strong> P5P ist der stärkste rezeptfreie Prolaktin-Inhibitor. Eine Einnahme über eine Woche senkt den Spiegel so stark, dass du nach einem Release fast sofort weitermachen kannst.</li>
+                        <li><strong>P5P (Aktives Vitamin B6) - 100mg/Tag:</strong> Der stärkste rezeptfreie Prolaktin-Hemmer. Erlaubt fast sofortige Multi-Orgasmen ohne Energieverlust.</li>
                     </ul>
 
-                    <h3>TENS-Einheit für den Beckenboden</h3>
+                    <h2>Die TENS-Blockade</h2>
                     <div class="ui-element">
-                        <span>[UI: Elektroden-Platzierung]</span>
-                        <span>CH 1: Damm (Perineum) <br> CH 2: Steißbein (Sacrum)</span>
+                        <span>[UI: TENS-Schaltplan]</span>
+                        <span>Frequenz: 2-5 Hz (Muskelentspannung) | CH1: Perineum | CH2: Sacrum</span>
+                    </div>
+                    <p>Eine niedrige Frequenz am Damm verhindert die physikalische Verkrampfung des PC-Muskels. Man kann stundenlang an der Kante (Edge) surfen, ohne dass das System den Ejakulationsreflex auslösen kann.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="manual-mechanics" class="panel">
+            <h1>Manual Mechanics (Gooning)</h1>
+            <p class="subtitle">Die Kunst der perfekten manuellen Stimulation: Grips, Pacing und Trance-Induktion.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Neuro-Sync & Dopamin-Stacking</h2>
+                    <p>Gooning ist kein physischer Ausdauersport, sondern Neuro-Hacking. Ziel ist die Überflutung des synaptischen Spalts mit Dopamin, ohne eine Entladung zuzulassen (Dopamin-Pooling).</p>
+                    <ul>
+                        <li><strong>Sensory Isolation:</strong> Dunkler Raum, Noise-Cancelling-Kopfhörer mit tiefen Binaural Beats (Alpha-Wellen, 8Hz Differenz). Der visuelle Fokus wird auf einen einzigen Screen beschränkt. Das schaltet den präfrontalen Kortex ab.</li>
+                        <li><strong>Das 90-Minuten Fenster:</strong> Nach 90 Minuten Edging schaltet das Gehirn in den "Sub-Space" (Goon-State). Zeitgefühl verschwindet, Berührungen fühlen sich elektrisch an.</li>
+                    </ul>
+
+                    <h2>Apex Grip-Techniques (Wichsen 2.0)</h2>
+                    <p>Vergiss den standardmäßigen "Death Grip", der nur Nerven abstumpft. Das Ziel ist maximale Blutzirkulation und gezielte Nervenstimulation.</p>
+                    <div class="ui-element">
+                        <span>[UI: Anatomisches Heat-Map Diagramm]</span>
+                        <span>Fokus-Punkte: Frenulum, Corona (Eichelrand), dorsale Venen</span>
                     </div>
                     <ul>
-                        <li><strong>Methode:</strong> Ein TENS-Gerät (niedrige Frequenz) am Damm verhindert, dass sich der PC-Muskel verkrampfen kann. Du kannst stundenlang auf Erregungslevel 9 bleiben, ohne dass der Reflex auslösen kann.</li>
+                        <li><strong>Der V-Grip (Corona Focus):</strong> Zeigefinger und Mittelfinger bilden ein "V" direkt unter der Eichel. Die Hand bleibt statisch, während das Becken die Bewegung ausführt. Maximiert die Friktion am sensibelsten Punkt.</li>
+                        <li><strong>Base-Throttling (Edging-Brake):</strong> Wenn Level 9 erreicht wird, greift die freie Hand fest an die absolut unterste Basis (nahe dem Beckenknochen) und drückt zu. Das stoppt den Blutrückfluss kurzzeitig, blockiert den Reflex und hält die Erektion bei 100%.</li>
+                        <li><strong>Lube-Management:</strong> Niemals trocken. Nutze dicke Gele (wie Polymer-X), die nicht verdunsten. Konstant gleitende Reibung verhindert Desensibilisierung der Epidermis.</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="oral-protocols" class="panel">
+            <h1>Oral Protocols (Fellatio Mastery)</h1>
+            <p class="subtitle">Die klinische Perfektion des Blasens. Für Nehmende und Gebende.</p>
+            <div class="grid">
+                <div class="card">
+                    <h2>Die Mechanik des Gebens (Deep-Throat)</h2>
+                    <p>Der perfekte Blowjob ist eine Kombination aus Vakuum-Dynamik, Speichel-Management und der gezielten Unterdrückung von Schutzreflexen.</p>
+                    <ul>
+                        <li><strong>Gag-Reflex Suppression:</strong> Der Würgereflex lässt sich physisch blockieren. Presse den linken Daumen fest in die linke Handfläche (Löst einen motorischen Override im Gehirn aus). Atme dabei ausschließlich tief durch die Nase.</li>
+                        <li><strong>Die Vakuum-Dichtung:</strong> Die Lippen müssen hinter den Zähnen eingeklappt werden (O-Shape). Das Vakuum wird nicht durch die Lunge, sondern durch das Zurückziehen der Zunge im Rachenraum erzeugt.</li>
+                        <li><strong>Frenulum-Flick:</strong> Während der Schaft im Mundraum gleitet, stimuliert die flache Zunge durch extrem schnelle, leichte Mikrobewegungen das Frenulum (Vorhautbändchen).</li>
+                    </ul>
+
+                    <h2>Das Newbie-Szenario (Empfangen & Kontrollieren)</h2>
+                    <p>Wenn du den passiven Part übernimmst, steuerst du das Erlebnis über visuelle und taktile Trigger.</p>
+                    <div class="highlight-box">
+                        <h3>Der "Watch & Release" Ablauf</h3>
+                        <ol>
+                            <li><strong>Visual Anchoring:</strong> Lehne dich zurück, platziere deine Hände hinter dem Kopf. Beobachte die Aktion. Das visuelle Feedback (zu sehen, wie er umschlossen wird) multipliziert die physische Empfindung um ein Vielfaches.</li>
+                            <li><strong>Pacing:</strong> Kommuniziere das Tempo durch sanften Druck auf den Hinterkopf oder die Schultern des Partners. Keine aggressiven Stöße – Führen durch leichte Impulse.</li>
+                            <li><strong>The Release:</strong> Wenn das Level 10 erreicht ist, ziehe dich kurz vorher leicht zurück, wenn du das Spritzen sehen (und in der Hand spüren) willst. Die Kombination aus der nassen Wärme des Mundes und dem plötzlichen Kalt-Schock an der Luft ist der stärkste Trigger für eine massive Ejakulation.</li>
+                        </ol>
+                    </div>
                 </div>
             </div>
         </div>
@@ -134,21 +192,18 @@
             <div class="grid">
                 <div class="card">
                     <h2>Das Thermos-Matrix System</h2>
-                    <p>Die Simulation von echtem Gewebe erfordert thermische Stabilität und reaktive Dichte. Standard-Schwämme bieten linearen Widerstand – echtes Gewebe nicht.</p>
+                    <p>Schwämme bieten linearen Widerstand – echtes Gewebe nicht. Die Lösung ist nicht-newtonsche Fluid-Mechanik.</p>
                     <div class="ui-element">
                         <span>[UI: System-Architektur: Thermos-Matrix]</span>
                         <span>0.75l Edelstahl-Gehäuse (Vakuum-isoliert) + Oobleck Pads</span>
                     </div>
                     <ul>
-                        <li><strong>Die Oobleck-Matrix (Non-Newtonian):</strong> Eine erhitzte Mischung aus Speisestärke und Wasser in zwei luftleeren Zip-Beuteln. Das Material ist weich bei langsamer Penetration, härtet aber bei stoßartiger Krafteinwirkung sofort aus. Dies simuliert exakt die Muskel-/Fett-Haptik.</li>
-                        <li><strong>Hydraulischer Druck:</strong> Wassergefüllte Nitrilhandschuhe als Polsterung bieten einen inkompressiblen, dynamischen 360-Grad-Umschließungsdruck, der jedem Vakuum-Toy überlegen ist.</li>
-                        <li><strong>Suction-Control (Der Vakuum-Mod):</strong> Eine 5mm Bohrung am Boden der Thermoskanne ermöglicht die manuelle Steuerung des Unterdrucks durch den Daumen (Pump-Simulation).</li>
+                        <li><strong>Die Oobleck-Matrix:</strong> Eine erhitzte Mischung aus Speisestärke und Wasser in zwei luftleeren Zip-Beuteln. Weich bei langsamer Penetration, härtet bei stoßartiger Kraft sofort aus.</li>
+                        <li><strong>Suction-Control:</strong> Eine 5mm Bohrung am Boden der Thermoskanne ermöglicht die manuelle Steuerung des Unterdrucks durch den Daumen.</li>
                     </ul>
-
-                    <h2>Polymer-X Synthesis (DIY High-End Lube)</h2>
-                    <p>Herkömmliche Lotions zerstören das Material. Polymer-X ist ein wasserbasiertes Hochleistungs-Gel.</p>
+                    <h2>Polymer-X Synthesis (DIY Lube)</h2>
                     <ul>
-                        <li><strong>Protokoll:</strong> 2 EL Maisstärke in kaltem Wasser auflösen. Unter Rühren aufkochen, bis die Lösung von trüb-weiß zu glasklar und zähflüssig wechselt. Das Ergebnis entspricht einem 30€-Hybridgleitmittel, das bei Wasserkontakt sofort reaktiviert.</li>
+                        <li><strong>Protokoll:</strong> 2 EL Maisstärke in kaltem Wasser auflösen. Aufkochen, bis es glasklar wird. Resultat ist ein wasserbasiertes Hochleistungs-Gel.</li>
                     </ul>
                 </div>
             </div>
@@ -156,15 +211,15 @@
 
         <div id="ecoflex-flesh" class="panel">
             <h1>EcoFlex Flesh Engineering</h1>
-            <p class="subtitle">Bau eines 100% lebensechten Platin-Silikon-Surrogats (Professional Grade).</p>
+            <p class="subtitle">Bau eines 100% lebensechten Platin-Silikon-Surrogats.</p>
             <div class="grid">
                 <div class="card">
                     <h2>Der Platin-Silikon-Guss</h2>
-                    <p>Wir nutzen Smooth-On EcoFlex 00-30, das exakt gleiche Material, das in der Filmindustrie und in High-End-Toys verwendet wird.</p>
+                    <p>Smooth-On EcoFlex 00-30 ist das identische Material kommerzieller High-End Hardware.</p>
                     <ul>
-                        <li><strong>Material:</strong> EcoFlex 00-30 (Part A + B, 1:1 Mix). Optional: Silc-Pig für realistische Färbung.</li>
-                        <li><strong>Die Form:</strong> Ein 100mm PVC-Rohr als Außenhülle. Ein 3D-gedruckter oder geformter Kern (strukturiert) für das Innere.</li>
-                        <li><strong>Gussprotokoll:</strong> Silikon anmischen (optional vakuumieren), in das mit Trennmittel bestrichene Rohr um den Kern gießen. Nach 4 Stunden Aushärtung erhältst du ein unzerstörbares, auskochbares Surrogat mit perfekten haptischen Eigenschaften.</li>
+                        <li><strong>Material:</strong> EcoFlex 00-30 (1:1 Mix) + Silc-Pig.</li>
+                        <li><strong>Form:</strong> 100mm PVC-Rohr + strukturierter Kern.</li>
+                        <li><strong>Prozess:</strong> Vakuumieren, Gießen, 4 Stunden härten lassen. Ergibt ein auskochbares, porentief reines Surrogat.</li>
                     </ul>
                 </div>
             </div>
@@ -172,22 +227,18 @@
 
         <div id="autofellatio-apex" class="panel">
             <h1>Biomechanics: Autofellatio</h1>
-            <p class="subtitle">Anatomische Kinetik, Flexibilitäts-Engineering und Risikomitigation.</p>
+            <p class="subtitle">Anatomische Kinetik und Flexibilitäts-Engineering.</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Die Halasana-Kette (Plow Pose Protocol)</h2>
-                    <p>Autofellatio erfordert keine überdurchschnittliche Phalluslänge, sondern die absolute Beherrschung der kinematischen Kette von der Lenden- bis zur Halswirbelsäule.</p>
-                    <div class="ui-element">
-                        <span>[UI: Biomechanisches Vektormodell]</span>
-                        <span>Kompression des Thorax & Dehnung der cervikalen Wirbelsäule</span>
-                    </div>
+                    <h2>Die Halasana-Kette (Plow Pose)</h2>
+                    <p>Erfordert die absolute Beherrschung der kinematischen Kette von der Lenden- bis zur Halswirbelsäule.</p>
                     <ul>
-                        <li><strong>Spinal Decompression:</strong> Das Becken muss über den Kopf geführt werden. Der kritische Punkt ist nicht der Rücken, sondern die Ischiocrurale Muskulatur (Hamstrings). Tägliches PNF-Stretching (Propriozeptive Neuromuskuläre Fazilitation) ist zwingend.</li>
-                        <li><strong>Diaphragmatic Breathing:</strong> In der finalen Pose wird der Brustkorb extrem komprimiert. Die Atmung muss rein über das Zwerchfell in den Bauchraum erfolgen, da sonst Panik-Reflexe den Core verkrampfen.</li>
+                        <li><strong>Spinal Decompression:</strong> Tägliches PNF-Stretching der Ischiocruralen Muskulatur (Hamstrings).</li>
+                        <li><strong>Diaphragmatic Breathing:</strong> Reine Zwerchfell-Atmung in der komprimierten Position, um Panik-Reflexe zu vermeiden.</li>
                     </ul>
                     <div class="warning-box">
                         <h4>Critical Risk: Cervical Spine</h4>
-                        <p>Das gesamte Körpergewicht ruht auf C7/T1 (Übergang Hals-/Brustwirbelsäule). Bei Taubheit in den Fingern (Nervenkompression) oder scharfen Schmerzen muss die Rotation sofort gestoppt werden. Akute Bandscheiben-Prolaps-Gefahr bei fehlendem Aufwärmen.</p>
+                        <p>Das Gewicht ruht auf C7/T1. Bei Taubheit in den Fingern sofort abbrechen (Bandscheiben-Prolaps-Gefahr).</p>
                     </div>
                 </div>
             </div>
@@ -195,18 +246,17 @@
 
         <div id="vr-sync" class="panel">
             <h1>Absolute VR & Teledildonics</h1>
-            <p class="subtitle">Die vollständige sensorische Übernahme durch automatisierte Hardware.</p>
+            <p class="subtitle">Vollständige sensorische Übernahme durch Hardware-Synchronisation.</p>
             <div class="grid">
                 <div class="card">
                     <h2>Das "Full-Dive" Setup</h2>
-                    <p>Der visuelle Input und die haptische Hardware laufen absolut synchron ohne manuelles Zutun (Goon-State Induktion).</p>
                     <div class="ui-element">
                         <span>[UI: Netzwerk Architektur]</span>
-                        <span>Meta Quest 3 ↔ DeoVR ↔ Intiface Desktop ↔ BLE ↔ Lovense Hardware</span>
+                        <span>Meta Quest 3 ↔ DeoVR ↔ Intiface Desktop ↔ Lovense Hardware</span>
                     </div>
                     <ul>
-                        <li><strong>Die Bridge:</strong> Intiface Desktop (Buttplug.io) verbindet den PC via Bluetooth Low Energy (BLE) mit der Hardware.</li>
-                        <li><strong>Haptisches Rendering:</strong> `.funscript`-Dateien steuern die Motoren (Lovense Max 2 / Kiiroo Keon) millisekundengenau zur Video-Aktion.</li>
+                        <li><strong>Die Bridge:</strong> Intiface Desktop (Buttplug.io) verbindet den PC via Bluetooth mit der Hardware.</li>
+                        <li><strong>Rendering:</strong> `.funscript`-Dateien steuern Motoren millisekundengenau zur Video-Aktion.</li>
                     </ul>
                 </div>
             </div>
@@ -214,15 +264,14 @@
 
         <div id="prostate-mapping" class="panel">
             <h1>Prostate Mapping & TENS</h1>
-            <p class="subtitle">Der garantierte Weg zum Hands-Free Orgasmus (Super-O).</p>
+            <p class="subtitle">Der Weg zum Hands-Free Orgasmus (Super-O).</p>
             <div class="grid">
                 <div class="card">
-                    <h2>Kinetische Resonanz (Aneros Protocol)</h2>
-                    <p>Der tiefste P-Punkt Orgasmus entsteht durch kinetische Energie und Mikromuskel-Kontraktionen des eigenen Beckenbodens, nicht durch billige Vibratoren.</p>
+                    <h2>Kinetische Resonanz (Aneros)</h2>
+                    <p>Tiefste Orgasmen entstehen durch Mikromuskel-Kontraktionen des Beckenbodens, nicht durch Vibration.</p>
                     <ul>
-                        <li><strong>Hardware & Lube:</strong> Aneros Helix/Syn in Kombination mit Polymer-Schmiermittel (J-Lube).</li>
-                        <li><strong>Rewiring:</strong> Keine Berührung mit den Händen. Spanne beim Einatmen den Schließmuskel leicht an. Die Hebelwirkung des Toys massiert die Prostata von innen.</li>
-                        <li><strong>Das Super-O Plateau:</strong> Nach 30 Minuten rhythmischer Atmung entlädt sich das System in Ganzkörper-Kontraktionen (ohne Ejakulation).</li>
+                        <li><strong>Hardware:</strong> Aneros Helix/Syn + Polymer-Schmiermittel (J-Lube).</li>
+                        <li><strong>Rewiring:</strong> Spanne beim Einatmen den Schließmuskel leicht an. Die Hebelwirkung massiert die Prostata von innen.</li>
                     </ul>
                 </div>
             </div>
@@ -230,23 +279,18 @@
 
         <div id="field-ops" class="panel">
             <h1>Field Ops: Bulletproof Networking</h1>
-            <p class="subtitle">Das 100% funktionierende Protokoll für extrem diskrete Offline-Begegnungen.</p>
+            <p class="subtitle">Das 100% funktionierende Protokoll für Newbie-Begegnungen.</p>
             <div class="grid">
                 <div class="card">
                     <h2>Die "Newbie-to-Newbie" Strategie</h2>
-                    <p>Das gezielte Umgehen von toxischen "Fleischmarkt"-Apps. Radikale Ehrlichkeit über die eigene Unerfahrenheit filtert Fakes und Druckmacher sofort aus.</p>
-                    
-                    <div class="highlight-box">
-                        <h3>Die 3 Goldenen Regeln der Logistik</h3>
-                        <ol>
-                            <li><strong>Der Sympathie-Check:</strong> Trefft euch IMMER zuerst an einem öffentlichen Ort am Tag (z.B. neutraler Parkplatz). Wer das ablehnt, ist ein Sicherheitsrisiko.</li>
-                            <li><strong>No Hosting:</strong> Gehe niemals in Privatwohnungen. Dein Revier und das des anderen bleiben absolut anonym. Nutze das Auto oder abgelegene Natur-Spots.</li>
-                            <li><strong>Voice Verification:</strong> Vor jedem Treffen wird kurz telefoniert. Die Stimme ist der beste Vibe-Check gegen Forsche und Respektlose.</li>
-                        </ol>
-                    </div>
+                    <p>Radikale Ehrlichkeit über Unerfahrenheit filtert Druckmacher aus und zieht diskrete Gleichgesinnte an.</p>
+                    <ol>
+                        <li><strong>Der Sympathie-Check:</strong> Trefft euch IMMER zuerst an einem öffentlichen Ort am Tag.</li>
+                        <li><strong>No Hosting:</strong> Gehe niemals in Privatwohnungen. Nutze das Auto oder diskrete Natur-Spots.</li>
+                        <li><strong>Voice Verification:</strong> Ein kurzes Telefonat vorab klärt den Vibe.</li>
+                    </ol>
 
-                    <h2>Das "Sniper" Inserat (Copy & Paste)</h2>
-                    <p>Dieses Template ist auf Markt.de (Erotik -> Trans-Kontakte / Er sucht Ihn) psychologisch auf Sicherheit und Diskretion optimiert.</p>
+                    <h2>Das "Sniper" Inserat (Für Markt.de)</h2>
                     <div class="code-block">Titel: Neuland entdecken: Zwei Anfänger, null Druck (aus der Region)
 
 Hallo, ich suche keinen „Fleischmarkt“, sondern echte, vorsichtige Neugier und Sympathie. Ich komme aus der Umgebung und möchte als absoluter Anfänger (Newbie) Neuland entdecken – respektvoll, ehrlich und diskret.
@@ -257,14 +301,14 @@ Wen ich suche:
 1. Männer (Gleichgesinnte): Du bist im Alltag verankert, suchst aber keinen Profi. Mein erster Wunsch: ihn in der Hand halten, die Wärme spüren und ihn spritzen sehen. Bei guter Chemie bin ich offen fürs Blasen. Ohne Druck.
 2. Trans-Frauen (Trans-feminin): Mich reizt die Kombination aus Weiblichkeit und dieser speziellen Ästhetik. Ich möchte dich nah spüren und verwöhnen.
 
-Wichtig: Alter/Körperbau zweitrangig. Chemie und der Vibe entscheiden.
+Wichtig: Alter/Körperbau zweitrangig. Chemie entscheidet.
 
 Der Rahmen: 
-- Absolute Diskretion (keine Ausnahmen)
+- Absolute Diskretion
 - Outdoor bevorzugt (keine Hausbesuche)
 - Kein Zeitdruck
 
-Ich freue mich auf eine echte Nachricht mit Niveau.</div>
+Ich freue mich auf eine echte Nachricht.</div>
                 </div>
             </div>
         </div>
